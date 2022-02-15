@@ -1,0 +1,22 @@
+.words_list_btn {
+  position: absolute;
+  top: 3.5rem;
+  color: #252525;
+  border: 3px solid #252525;
+  background-color: #ffffff;
+  width: 7.5rem;
+  height: 3rem;
+  font-size: 1rem;
+  border-radius: 0.8rem;
+  box-shadow: 1px 1px 3px #252525;
+  transition: 0.3s;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+
+.words_list_btn:hover {
+  box-shadow: none;
+  background-color: #252525;
+  color: #ffffff;
+}
+

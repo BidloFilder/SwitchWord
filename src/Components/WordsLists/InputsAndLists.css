@@ -1,0 +1,47 @@
+.list_and_button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.words_list_box {
+  position: relative;
+  height: 60vh;
+  margin-top: 5rem;
+}
+
+input {
+  display: block;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #252525;
+  padding: .5em 0em;
+  font-size: 1.8rem;
+}
+
+label {
+  display: inline-block;
+  margin: 0 3rem 0 3rem;
+  font-size: 1.3rem;
+}
+
+button {
+  color: #252525;
+  border: 3px solid #252525;
+  background-color: #ffffff;
+  width: 6rem;
+  height: 2.5rem;
+  font-size: .9rem;
+  border-radius: 0.8rem;
+  transition: 0.3s;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+
+button:hover {
+  box-shadow: none;
+  background-color: #252525;
+  color: #ffffff;
+}
