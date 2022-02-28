@@ -1,20 +1,19 @@
 import { useState } from 'react';
-import './WordsListButton.css';
+import './MainButton.css';
 
-const WordsListButton = (props) => {
-    
+const MainButton = (props) => {
   const [showList, setShowList] = useState(false);
-  const [showWord, setShowWord] = useState('Show List');
+  const [showWord, setShowWord] = useState('List');
 
   const openWordsList = () => {
     if (!showList) {
       setShowList(true);
-      setShowWord('Hide List');
-      props.onShowWord(showList);
+      setShowWord('Back');
+      props.showAndHide(showList);
     } else if (showList) {
       setShowList(false);
-      setShowWord('Show List');
-      props.onShowWord(showList);
+      setShowWord('List');
+      props.showAndHide(showList);
     }
   };
 
@@ -25,4 +24,4 @@ const WordsListButton = (props) => {
   );
 };
 
-export default WordsListButton;
+export default MainButton;

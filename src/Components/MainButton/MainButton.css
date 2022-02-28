@@ -2,13 +2,12 @@
   position: absolute;
   top: 3.5rem;
   color: #252525;
-  border: 3px solid #252525;
+  border: 1px solid #25252580;
   background-color: #ffffff;
-  width: 7.5rem;
+  width: 6rem;
   height: 3rem;
-  font-size: 1rem;
-  border-radius: 0.8rem;
-  box-shadow: 1px 1px 3px #252525;
+  font-size: 1.3rem;
+  border-radius: 3px;
   transition: 0.3s;
   cursor: pointer;
   word-wrap: break-word;
@@ -18,5 +17,6 @@
   box-shadow: none;
   background-color: #252525;
   color: #ffffff;
+  border-radius: 5px;
 }
 

@@ -9,11 +9,11 @@
   position: relative;
   background-color: #ffffff;
   border: none;
-  border-bottom: 3px solid #252525;
-  padding: 2rem 0;
+  border-bottom: 1px solid #25252580;
+  padding: .9rem 0;
   font-size: 3rem;
   width: 20rem;
-  margin-right: 35rem;
+  margin-right: 45rem;
 }
 
 .input:focus {
@@ -24,7 +24,7 @@
   position: absolute;
   font-size: 3rem;
   padding: 2rem 5rem;
-  margin-left: 35rem;
+  margin-left: 40rem;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -33,7 +33,7 @@
 .result::after {
   content: '';
   position: absolute;
-  border-bottom: 3px solid #252525;
+  border-bottom: 1px solid #25252580;
   min-width: 20rem;
-  margin-bottom: -2rem;
+  margin-bottom: -1rem;
 }
