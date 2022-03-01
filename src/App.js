@@ -38,6 +38,11 @@ function App() {
     return WORDS;
   };
 
+  const deleteAll = () => {
+    WORDS = []
+    return WORDS
+  }
+
   return (
     <div>
       <div className="main_button">
@@ -48,6 +53,7 @@ function App() {
           <InputsAndLists
             deleteWord={deleteWordsHandler}
             addWord={addNewWordsHandler}
+            deleteAll={deleteAll}
           /> ) : null}
       </div>
       <div>

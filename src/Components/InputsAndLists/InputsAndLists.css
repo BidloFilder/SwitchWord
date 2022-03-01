@@ -15,7 +15,7 @@ input {
   border-bottom: 1px solid #25252580;
   padding: .5em 0em;
   font-size: 1.8rem;
-  margin: 0 8rem;
+  margin: 0 5rem;
 }
 
 label {
@@ -86,4 +86,24 @@ label {
   background-color: #252525;
   color: #ffffff;
   border-radius: 0;
+}
+
+.word_warning, .translation_warning {
+  background-color: #b9002e57;
+  border-radius: 5px;
+}
+
+.delete_all {
+  color: #252525;
+  border: 1px solid #25252580;
+  background-color: #ffffff;
+  width: 6rem;
+  margin-top: 1.5rem;
+  margin-left: 2rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  border-radius: 3px;
+  transition: 0.3s;
+  cursor: pointer;
+  word-wrap: break-word;
 }
