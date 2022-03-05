@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400&family=Maven+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     color: #252525;
     font-family: 'Jost', sans-serif;
-
 }
 
 body {
-    background-color: #ffffff;
+    background-color: #dafeff;
 }
 
 .main_button {
@@ -20,4 +21,13 @@ body {
 .lists {
     display: flex;
     justify-content: center;
+}
+
+.logo {
+    font-size: 2rem;
+    transform: rotate(-15deg);
+    position: absolute;
+    top: 5%;
+    left: 1.5%;
+    font-family: 'Kaushan Script', cursive;
 }

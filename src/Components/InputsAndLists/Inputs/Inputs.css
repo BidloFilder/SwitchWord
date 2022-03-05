@@ -1,0 +1,72 @@
+
+.words_list_box {
+  margin-top: 13rem;
+}
+
+.list_form {
+  display: flex;
+  margin-bottom: 6rem;
+}
+
+input {
+  display: block;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #25252580;
+  padding: .5em 0em;
+  font-size: 1.8rem;
+  margin: 0 5rem;
+  background: none;
+}
+
+label {
+  text-align: center;
+  display: inline-block;
+  font-size: 1.4rem;
+}
+
+.add_btn {
+  color: #252525;
+  border: none;
+  border-bottom: 1px solid #252525;
+  border-top: 1px solid #252525;
+  background: none;
+  width: 6rem;
+  margin-top: 1.5rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  transition: 0.3s;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+
+.add_btn:hover {
+  background-color: #252525;
+  color: #ffffff;
+}
+
+.word_warning, .translation_warning {
+  background-color: #b9002e57;
+  border-radius: 5px;
+}
+
+.delete_all {
+  color: #252525;
+  border: none;
+  border-bottom: 1px solid #252525;
+  border-top: 1px solid #252525;
+  background: none;
+  width: 6rem;
+  margin-top: 1.5rem;
+  margin-left: 2rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  transition: 0.3s;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+
+.delete_all:hover {
+  color: #ffffff;
+  background-color: #252525;
+}

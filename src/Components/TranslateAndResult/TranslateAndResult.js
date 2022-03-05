@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import './TranslateAndResult.css';
-import '../InputsAndLists/InputsAndLists.css';
 
 const TranslateAndResult = (props) => {
-  
+  const [answer, setAnswer] = useState('')
+  const [answerBtn, setAnswerBtn] = useState('Show Answer')
+
   //Get random object from WORDS array
   const getRandomObjFromArr = () => {
     return props.getWords[Math.floor(Math.random() * props.getWords.length)];
@@ -15,9 +16,8 @@ const TranslateAndResult = (props) => {
       const inlineErrorStyle = {
         color: 'crimson',
         fontSize: '2rem',
-        borderLeft: '4px solid crimson',
-        borderRight: '4px solid crimson',
-        padding: '.65rem 2rem',
+        padding: '.65rem 1rem',
+        width: '260px',
         opacity: 1,
       };
       return [<span style={inlineErrorStyle}>The List is Empty</span>];
@@ -35,26 +35,43 @@ const TranslateAndResult = (props) => {
     let translation = event.target.translate;
 
     if (translation.value.toLowerCase() === word[1].toLowerCase()) {
-      console.log("You're god damn right");
+      setAnswer('Correct!')
       setWord(convertRandomObjToArr());
     }
     if (translation.value.toLowerCase() !== word[1].toLowerCase()) {
-      console.log("It's wrong you dumbass");
+      setAnswer('Wrong!')
     }
     translation.value = '';
   };
 
+  const showAnswer = () => {
+    if (answerBtn === 'Show Answer') {
+      setAnswerBtn(word[1])
+    } else {
+      setAnswerBtn('Show Answer')
+    } 
+  }
+
   return (
     <div className="box">
+      <span className='logo'>SwitchWord</span>
       <form onSubmit={changeWordHandler}>
         <input
           id="translate"
           className="input"
-          maxLength={30}
+          maxLength={40}
           autoComplete="off"
+          placeholder='Answer'
         />
-      </form>
-      <p className="result">{word[0]}</p>
+        <span className='answer'>{answer}</span>
+        <button type="submit" className="check_btn">
+          Check
+        </button>
+        <button className='show_answer' type='button' onClick={showAnswer}>
+          {answerBtn}
+        </button>
+      </form>  
+        <p className="result">{word[0]}</p> 
     </div>
   );
 };

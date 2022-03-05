@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import './InputsAndLists.css';
+import Lists from '../Lists/Lists';
+import './Inputs.css';
 
-const InputsAndLists = (props) => {
+const Inputs = (props) => {
   const [listValue, setListValue] = useState(props.addWord);
   const [wordWarning, setWordWarning] = useState(false);
   const [translationWarning, setTranslationWarning] = useState(false);
@@ -23,10 +24,9 @@ const InputsAndLists = (props) => {
 
       setListValue(
         props.addWord(
-          wordValue.charAt(0).toUpperCase() +
-          wordValue.slice(1).toLowerCase(),
+          wordValue.charAt(0).toUpperCase() + wordValue.slice(1).toLowerCase(),
           translateValue.charAt(0).toUpperCase() +
-          translateValue.slice(1).toLowerCase()
+            translateValue.slice(1).toLowerCase()
         )
       );
       event.target.word.value = '';
@@ -41,6 +41,7 @@ const InputsAndLists = (props) => {
 
   return (
     <div className="words_list_box">
+      <span className='logo'>SwitchWord</span>
       <form onSubmit={passInputsValue} autoComplete="off" className="list_form">
         <label>
           Word
@@ -50,7 +51,9 @@ const InputsAndLists = (props) => {
         <button className="add_btn" type="submit">
           Add Word
         </button>
-        <button onClick={deleteAll} className='delete_all'>Delete All</button>
+        <button onClick={deleteAll} className="delete_all">
+          Delete All
+        </button>
 
         <label>
           Translation
@@ -61,33 +64,9 @@ const InputsAndLists = (props) => {
         </label>
       </form>
 
-      <div className="list_items">
-        {listValue.map((value) => {
-          return (
-            <div key={value.id}>
-              <div className="item">
-                <p>
-                  {Object.keys(value)[0].charAt(0).toUpperCase() +
-                    Object.keys(value)[0].slice(1).toLowerCase()}
-                </p>
-                <button
-                  className="delete_btn"
-                  onClick={props.deleteWord}
-                  type="button"
-                >
-                  Delete
-                </button>
-                <p style={{ fontWeight: '400' }}>
-                  {Object.values(value)[0].charAt(0).toUpperCase() +
-                    Object.values(value)[0].slice(1).toLowerCase()}
-                </p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+     <Lists listValue={listValue} deleteWord={props.deleteWord}/>
     </div>
   );
 };
 
-export default InputsAndLists;
+export default Inputs;

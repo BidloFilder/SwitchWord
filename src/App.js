@@ -1,7 +1,7 @@
 import './App.css';
 import TranslateAndResult from './Components/TranslateAndResult/TranslateAndResult';
 import MainButton from './Components/MainButton/MainButton';
-import InputsAndLists from './Components/InputsAndLists/InputsAndLists';
+import Inputs from './Components/InputsAndLists/Inputs/Inputs';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -33,6 +33,7 @@ function App() {
   const deleteWordsHandler = (event) => {
     let word = event.target.previousSibling.innerText;
     let translation = event.target.nextSibling.innerText;
+    
     event.target.parentNode.parentNode.removeChild(event.target.parentNode);
     WORDS = WORDS.filter((item) => item[word] !== translation);
     return WORDS;
@@ -50,7 +51,7 @@ function App() {
       </div>
       <div className="lists">
         {showLists ? (
-          <InputsAndLists
+          <Inputs
             deleteWord={deleteWordsHandler}
             addWord={addNewWordsHandler}
             deleteAll={deleteAll}

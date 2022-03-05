@@ -1,0 +1,42 @@
+.list_items {
+  height: 40vh;
+  margin-bottom: -6.5rem;
+  margin-top: 5rem;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  border-left: 1px solid #252525;
+  border-right: 1px solid #252525;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
+  padding: 1rem 2rem;
+  font-size: 1.7rem;
+  margin: 1.5rem 4rem;
+  background-color: #b9fdff;
+}
+
+.delete_btn {
+  position: absolute;
+  left: 48%;
+  margin-top: 0.2rem;
+  color: #252525;
+  border: none;
+  border-left: 1px solid #252525;
+  border-right: 1px solid #252525;
+  background: none;
+  font-size: 1rem;
+  transition: 0.3s;
+  cursor: pointer;
+  word-wrap: break-word;
+  width: 4rem;
+  height: 2rem;
+}
+
+.delete_btn:hover {
+  background-color: #252525;
+  color: #ffffff;
+  border-radius: 0;
+}
