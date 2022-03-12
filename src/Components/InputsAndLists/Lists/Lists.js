@@ -9,7 +9,7 @@ const Lists = (props) => {
         return (
           <div key={value.id}>
             <div className="item">
-              <p>
+              <p style={{color: '#ffffff'}}>
                 {Object.keys(value)[0].charAt(0).toUpperCase() +
                   Object.keys(value)[0].slice(1).toLowerCase()}
               </p>
@@ -20,7 +20,7 @@ const Lists = (props) => {
               >
                 Delete
               </button>
-              <p style={{ fontWeight: '400' }}>
+              <p style={{ fontWeight: '400', color: "#ffffff"}}>
                 {Object.values(value)[0].charAt(0).toUpperCase() +
                   Object.values(value)[0].slice(1).toLowerCase()}
               </p>

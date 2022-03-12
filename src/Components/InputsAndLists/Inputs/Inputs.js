@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Lists from '../Lists/Lists';
 import './Inputs.css';
 
 const Inputs = (props) => {
-  const [listValue, setListValue] = useState(props.addWord);
+  const [listValue, setListValue] = useState(() => {
+    const localData = localStorage.getItem('words');
+    return localData ? JSON.parse(localData) : [];
+  }, props.addWord);
+
+  useEffect(() => {
+    localStorage.setItem('words', JSON.stringify(listValue));
+  }, [listValue]);
+
   const [wordWarning, setWordWarning] = useState(false);
   const [translationWarning, setTranslationWarning] = useState(false);
 
@@ -24,9 +32,10 @@ const Inputs = (props) => {
 
       setListValue(
         props.addWord(
-          wordValue.charAt(0).toUpperCase() + wordValue.slice(1).toLowerCase(),
+          wordValue.charAt(0).toUpperCase() + 
+          wordValue.slice(1).toLowerCase(),
           translateValue.charAt(0).toUpperCase() +
-            translateValue.slice(1).toLowerCase()
+          translateValue.slice(1).toLowerCase()
         )
       );
       event.target.word.value = '';
@@ -41,7 +50,7 @@ const Inputs = (props) => {
 
   return (
     <div className="words_list_box">
-      <span className='logo'>SwitchWord</span>
+      <span className="logo">SwitchWord</span>
       <form onSubmit={passInputsValue} autoComplete="off" className="list_form">
         <label>
           Word
@@ -64,7 +73,7 @@ const Inputs = (props) => {
         </label>
       </form>
 
-     <Lists listValue={listValue} deleteWord={props.deleteWord}/>
+      <Lists listValue={listValue} deleteWord={props.deleteWord} />
     </div>
   );
 };

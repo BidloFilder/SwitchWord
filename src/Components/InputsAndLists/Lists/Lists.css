@@ -8,24 +8,25 @@
   display: flex;
   justify-content: space-between;
   border: none;
-  border-left: 1px solid #252525;
-  border-right: 1px solid #252525;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
   font-family: 'Montserrat', sans-serif;
   font-weight: lighter;
   padding: 1rem 2rem;
   font-size: 1.7rem;
   margin: 1.5rem 4rem;
-  background-color: #b9fdff;
+  background-color: #b9002e57;
+  border-radius: 1px;
 }
 
 .delete_btn {
   position: absolute;
   left: 48%;
   margin-top: 0.2rem;
-  color: #252525;
+  color: #ffffff;
   border: none;
-  border-left: 1px solid #252525;
-  border-right: 1px solid #252525;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
   background: none;
   font-size: 1rem;
   transition: 0.3s;
@@ -33,10 +34,11 @@
   word-wrap: break-word;
   width: 4rem;
   height: 2rem;
+  border-radius: 1px;
 }
 
 .delete_btn:hover {
-  background-color: #252525;
-  color: #ffffff;
-  border-radius: 0;
+  background-color: #ffffff;
+  border-color: #b9002e57;
+  color: #252525;
 }

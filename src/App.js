@@ -1,5 +1,5 @@
 import './App.css';
-import TranslateAndResult from './Components/TranslateAndResult/TranslateAndResult';
+import AnswerAndWord from './Components/AnswerAndWord/AnswerAndWord';
 import MainButton from './Components/MainButton/MainButton';
 import Inputs from './Components/InputsAndLists/Inputs/Inputs';
 import { useState } from 'react';
@@ -10,6 +10,8 @@ let WORDS = [];
 function App() {
   const [showTranslate, setShowTranslate] = useState(true);
   const [showLists, setShowLists] = useState(false);
+  const localData = localStorage.getItem('words');
+  WORDS = JSON.parse(localData);
 
   const showAndHideHandler = (showList) => {
     if (!showList) {
@@ -22,9 +24,6 @@ function App() {
   };
 
   const addNewWordsHandler = (word, translation) => {
-    if ((word, translation === undefined)) {
-      return WORDS;
-    }
     let object = { [word]: translation, id: uuidv4() };
     WORDS = [object, ...WORDS];
     return WORDS;
@@ -33,16 +32,18 @@ function App() {
   const deleteWordsHandler = (event) => {
     let word = event.target.previousSibling.innerText;
     let translation = event.target.nextSibling.innerText;
-    
     event.target.parentNode.parentNode.removeChild(event.target.parentNode);
-    WORDS = WORDS.filter((item) => item[word] !== translation);
-    return WORDS;
+
+    let storageWords = JSON.parse(localStorage.getItem('words'));
+    storageWords = storageWords.filter((item) => item[word] !== translation);
+    storageWords = JSON.stringify(storageWords);
+    localStorage.setItem('words', storageWords);
   };
 
   const deleteAll = () => {
-    WORDS = []
-    return WORDS
-  }
+    WORDS = [];
+    return WORDS;
+  };
 
   return (
     <div>
@@ -55,11 +56,10 @@ function App() {
             deleteWord={deleteWordsHandler}
             addWord={addNewWordsHandler}
             deleteAll={deleteAll}
-          /> ) : null}
+          />
+        ) : null}
       </div>
-      <div>
-        {showTranslate ? <TranslateAndResult getWords={WORDS} /> : null}
-      </div>
+      <div>{showTranslate ? <AnswerAndWord getWords={WORDS} /> : null}</div>
     </div>
   );
 }

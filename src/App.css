@@ -5,12 +5,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    color: #252525;
     font-family: 'Jost', sans-serif;
 }
 
 body {
-    background-color: #dafeff;
+    background-color: #1d1d1d;
 }
 
 .main_button {
@@ -29,5 +28,7 @@ body {
     position: absolute;
     top: 5%;
     left: 1.5%;
+    color: #ffffff;
     font-family: 'Kaushan Script', cursive;
+    cursor: default;
 }
