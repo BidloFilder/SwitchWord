@@ -14,11 +14,9 @@ const AnswerAndWord = (props) => {
   const convertRandomObjToArr = () => {
     if (getRandomObjFromArr() === undefined) {
       const inlineErrorStyle = {
-        color: '#ffffff',
+        color: '#b9002e',
         fontSize: '2rem',
-        padding: '.65rem 2.5rem',
-        width: '260px',
-        opacity: 1,
+        opacity: 0.8,
       };
       return [<span style={inlineErrorStyle}>List is Empty</span>];
     } else {
@@ -46,10 +44,10 @@ const AnswerAndWord = (props) => {
   };
 
   const showAnswer = () => {
-    if (answerBtn === "Show Answer") {
+    if (answerBtn === 'Show Answer') {
       setAnswerBtn(word[1]);
     } else {
-      setAnswerBtn('Show Answer')
+      setAnswerBtn('Show Answer');
     }
   };
 

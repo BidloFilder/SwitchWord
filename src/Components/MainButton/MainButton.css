@@ -1,22 +1,19 @@
 .words_list_btn {
   position: absolute;
   top: 8rem;
+  background-color: #b9002e57;
   color: #ffffff;
   border: none;
-  border-right: 1px solid #ffffff;
-  border-left: 1px solid #ffffff;
-  background: none;
   width: 6rem;
   height: 3rem;
   font-size: 1.3rem;
   transition: 0.3s;
   cursor: pointer;
   word-wrap: break-word;
-  border-radius: 1px;
+  border-radius: 5px;
 }
 
 .words_list_btn:hover {
-  color: #ffffff;
-  background-color: #b9002e57;
-  border-color: #b9002e00;
+  background-color: #ffffff;
+  color: #b9002e;
 }

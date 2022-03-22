@@ -7,15 +7,14 @@
 
 .input {
   position: relative;
-  border-bottom: none;
-  background-color: #b9002e57;
+  border: 2px solid #b9002e57;
   padding: .3rem 1rem;
   font-size: 3rem;
   width: 19rem;
   margin-right: 49rem;
   margin-bottom: -3.7rem;
   color: #ffffff;
-  border-radius: 1px;
+  border-radius: 5px;
 }
 
 .input:focus {
@@ -35,25 +34,24 @@ input:hover::placeholder {
   margin-bottom: 0rem;
   font-size: 3rem;
   margin-left: 43rem;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #b9002e;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 300px;
   height: 80px;
-  background-color: #b9002e57;
-  border-radius: 1px;
+  border-radius: 5px;
   cursor: default;
 }
 
 .check_btn {
   margin-left: 27rem;
   margin-bottom: 1.4rem;
+  background-color: #b9002e57;
   color: #ffffff;
   border: none;
-  border-right: 1px solid #ffffff;
-  border-left: 1px solid #ffffff;
-  background: none;
+  border-radius: 5px;
   width: 8.5rem;
   height: 2.5rem;
   font-size: 1.1rem;
@@ -63,9 +61,8 @@ input:hover::placeholder {
 }
 
 .check_btn:hover {
-  background-color: #b9002e57;
-  color: #ffffff;
-  border-color: #b9002e00;
+  background-color: #ffffff;
+  color: #b9002e;
 }
 
 .answer {
@@ -78,11 +75,10 @@ input:hover::placeholder {
 
 .show_answer {
   margin-left: 2rem;
+  background-color: #b9002e57;
   color: #ffffff;
   border: none;
-  border-right: 1px solid #ffffff;
-  border-left: 1px solid #ffffff;
-  background: none;
+  border-radius: 5px;
   width: 8rem;
   height: 2.5rem;
   font-size: 1.1rem;
@@ -92,7 +88,6 @@ input:hover::placeholder {
 }
 
 .show_answer:hover {
-  background-color: #b9002e57;
-  color: #ffffff;
-  border-color: #b9002e00;
+  background-color: #ffffff;
+  color: #b9002e;
 }

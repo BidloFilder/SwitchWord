@@ -28,11 +28,10 @@ label {
 }
 
 .add_btn {
-  color: #ffffff;
   border: none;
-  border-bottom: 1px solid #ffffff;
-  border-top: 1px solid #ffffff;
-  background: none;
+  border-radius: 5px;
+  background-color: #b9002e57;
+  color: #ffffff;
   width: 6rem;
   margin-top: 1.5rem;
   height: 2.5rem;
@@ -43,9 +42,8 @@ label {
 }
 
 .add_btn:hover {
-  background-color: #b9002e57;
-  color: #ffffff;
-  border-color: #b9002e00;
+  background-color: #ffffff;
+  color: #b9002e;
 }
 
 .word_warning, .translation_warning {
@@ -54,11 +52,10 @@ label {
 }
 
 .delete_all {
-  color: #ffffff;
   border: none;
-  border-bottom: 1px solid #ffffff;
-  border-top: 1px solid #ffffff;
-  background: none;
+  border-radius: 5px;
+  background-color: #b9002e57;
+  color: #ffffff;
   width: 6rem;
   margin-top: 1.5rem;
   margin-left: 2rem;
@@ -70,7 +67,6 @@ label {
 }
 
 .delete_all:hover {
-  color: #ffffff;
-  background-color: #b9002e57;
-  border-color: #b9002e00;
+  background-color: #ffffff;
+  color: #b9002e;
 }
