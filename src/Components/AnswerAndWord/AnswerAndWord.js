@@ -7,7 +7,7 @@ const AnswerAndWord = (props) => {
 
   //Get random object from WORDS array
   const getRandomObjFromArr = () => {
-    return props.getWords[Math.floor(Math.random() * props.getWords.length)];
+    return props.getWords()[Math.floor(Math.random() * props.getWords().length)];
   };
 
   //Get result word from function above or return warning message

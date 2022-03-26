@@ -45,6 +45,12 @@ function App() {
     return WORDS;
   };
 
+  const getWords = () => {
+    if (WORDS == null) {
+      return []
+    } else return WORDS
+  }
+
   return (
     <div>
       <div className="main_button">
@@ -59,7 +65,7 @@ function App() {
           />
         ) : null}
       </div>
-      <div>{showTranslate ? <AnswerAndWord getWords={WORDS} /> : null}</div>
+      <div>{showTranslate ? <AnswerAndWord getWords={getWords} /> : null}</div>
     </div>
   );
 }
