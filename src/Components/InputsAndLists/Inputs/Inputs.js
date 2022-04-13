@@ -3,6 +3,9 @@ import Lists from '../Lists/Lists';
 import './Inputs.css';
 
 const Inputs = (props) => {
+  const [showEmptyListWarning, setShowEmptyListWarning] = useState(false);
+  const [wordWarning, setWordWarning] = useState(false);
+  const [translationWarning, setTranslationWarning] = useState(false);
   const [listValue, setListValue] = useState(() => {
     const localData = localStorage.getItem('words');
     return localData ? JSON.parse(localData) : [];
@@ -12,30 +15,30 @@ const Inputs = (props) => {
     localStorage.setItem('words', JSON.stringify(listValue));
   }, [listValue]);
 
-  const [wordWarning, setWordWarning] = useState(false);
-  const [translationWarning, setTranslationWarning] = useState(false);
+  useEffect(() => {
+    if (listValue.length === 0) {
+      setShowEmptyListWarning(true);
+    } else setShowEmptyListWarning(false);
+  }, [listValue]);
 
   const passInputsValue = (event) => {
     event.preventDefault();
+
     let wordValue = event.target.word.value;
     let translateValue = event.target.translation.value;
 
-    if (wordValue === '' || !isNaN(wordValue)) {
-      setWordWarning(true);
-      setTranslationWarning(true);
-    } else if (translateValue === '' || !isNaN(translateValue)) {
+    if (wordWarning || translationWarning === true) {
+      return undefined;
+    } else if ((wordValue, translateValue === '')) {
       setWordWarning(true);
       setTranslationWarning(true);
     } else {
-      setWordWarning(false);
-      setTranslationWarning(false);
-
       setListValue(
         props.addWord(
-          wordValue.charAt(0).toUpperCase() + 
-          wordValue.slice(1).toLowerCase(),
-          translateValue.charAt(0).toUpperCase() +
-          translateValue.slice(1).toLowerCase()
+          wordValue.trim().charAt(0).toUpperCase() +
+          wordValue.trim().slice(1).toLowerCase(),
+          translateValue.trim().charAt(0).toUpperCase() +
+          translateValue.trim().slice(1).toLowerCase()
         )
       );
       event.target.word.value = '';
@@ -48,30 +51,45 @@ const Inputs = (props) => {
     props.deleteAll();
   };
 
+  const translationIsValid = (event) => {
+    if (!isNaN(event.target.value)) {
+      setTranslationWarning(true);
+    } else setTranslationWarning(false);
+  };
+
+  const wordIsValid = (event) => {
+    if (!isNaN(event.target.value)) {
+      setWordWarning(true);
+    } else setWordWarning(false);
+  };
+
   return (
     <div className="words_list_box">
-      <span className="logo">SwitchWord</span>
       <form onSubmit={passInputsValue} autoComplete="off" className="list_form">
-        <label>
-          Word
-          <input id="word" className={wordWarning ? 'word_warning' : null} />
-        </label>
-
+        <input
+          id="word"
+          placeholder="Word"
+          className={wordWarning ? 'word_warning' : null}
+          onChange={wordIsValid}
+        />
         <button className="add_btn" type="submit">
           Add Word
         </button>
-        <button onClick={deleteAll} className="delete_all">
-          Delete All
-        </button>
-
-        <label>
-          Translation
-          <input
-            id="translation"
-            className={translationWarning ? 'translation_warning' : null}
-          />
-        </label>
+        <input
+          id="translation"
+          placeholder="Translation"
+          className={translationWarning ? 'translation_warning' : null}
+          onChange={translationIsValid}
+        />
       </form>
+
+      <button onClick={deleteAll} className="delete_all">
+        Delete All
+      </button>
+      
+      {showEmptyListWarning ? (
+        <span className="list_is_empty">List Is Empty</span>
+      ) : null}
 
       <Lists listValue={listValue} deleteWord={props.deleteWord} />
     </div>

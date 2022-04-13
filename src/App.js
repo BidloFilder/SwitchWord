@@ -4,12 +4,14 @@ import MainButton from './Components/MainButton/MainButton';
 import Inputs from './Components/InputsAndLists/Inputs/Inputs';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Fragment } from 'react/cjs/react.production.min';
 
 let WORDS = [];
 
 function App() {
   const [showTranslate, setShowTranslate] = useState(true);
   const [showLists, setShowLists] = useState(false);
+  
   const localData = localStorage.getItem('words');
   WORDS = JSON.parse(localData);
 
@@ -30,10 +32,12 @@ function App() {
   };
 
   const deleteWordsHandler = (event) => {
+    //Delete from list
     let word = event.target.previousSibling.innerText;
     let translation = event.target.nextSibling.innerText;
     event.target.parentNode.parentNode.removeChild(event.target.parentNode);
 
+    //Delete from localStorage
     let storageWords = JSON.parse(localStorage.getItem('words'));
     storageWords = storageWords.filter((item) => item[word] !== translation);
     storageWords = JSON.stringify(storageWords);
@@ -47,16 +51,17 @@ function App() {
 
   const getWords = () => {
     if (WORDS == null) {
-      return []
-    } else return WORDS
-  }
+      return [];
+    } else return WORDS;
+  };
 
   return (
-    <div>
-      <div className="main_button">
+    <Fragment>
+      <div className="logo_wrapper">
+        <div className="logo">SwitchWord</div>
         <MainButton showAndHide={showAndHideHandler} />
       </div>
-      <div className="lists">
+      <>
         {showLists ? (
           <Inputs
             deleteWord={deleteWordsHandler}
@@ -64,9 +69,9 @@ function App() {
             deleteAll={deleteAll}
           />
         ) : null}
-      </div>
-      <div>{showTranslate ? <AnswerAndWord getWords={getWords} /> : null}</div>
-    </div>
+      </>
+      <>{showTranslate ? <AnswerAndWord getWords={getWords} /> : null}</>
+    </Fragment>
   );
 }
 

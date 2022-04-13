@@ -8,7 +8,7 @@ const MainButton = (props) => {
   const openWordsList = () => {
     if (!showList) {
       setShowList(true);
-      setShowWord('Back');
+      setShowWord('Main');
       props.showAndHide(showList);
     } else if (showList) {
       setShowList(false);

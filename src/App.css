@@ -1,34 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400&family=Maven+Pro&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Serif+Display&display=swap');
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Jost', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Jost', sans-serif;
 }
 
 body {
-    background-color: #1d1d1d;
+  background-color: #1d1d1d;
 }
 
-.main_button {
-    display: flex;
-    justify-content: center;
-}
-
-.lists {
-    display: flex;
-    justify-content: center;
+.logo_wrapper {
+  width: 100%;
+  background-color: #1d1d1d;
+  display: grid;
+  grid-template: 'l li a';
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid #b9002e57;
+  position: fixed;
 }
 
 .logo {
-    font-size: 2rem;
-    transform: rotate(-15deg);
-    position: absolute;
-    top: 5%;
-    left: 1.5%;
-    color: #ffffff;
-    font-family: 'Kaushan Script', cursive;
-    cursor: default;
+  grid-area: l;
+  color: #ffffff;
+  font-size: 2rem;
+  font-family: 'DM Serif Display', serif;
+  cursor: default;
+  padding: 0.6rem 0 0.6rem 2rem;
 }
