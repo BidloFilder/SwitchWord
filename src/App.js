@@ -1,17 +1,20 @@
-import './App.css';
+import styles from './App.module.scss';
 import AnswerAndWord from './Components/AnswerAndWord/AnswerAndWord';
 import MainButton from './Components/MainButton/MainButton';
-import Inputs from './Components/InputsAndLists/Inputs/Inputs';
+import Inputs from './Components/Options/OptionsForCards';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Fragment } from 'react/cjs/react.production.min';
 
+
 let WORDS = [];
 
+
 function App() {
+
   const [showTranslate, setShowTranslate] = useState(true);
   const [showLists, setShowLists] = useState(false);
-  
+
   const localData = localStorage.getItem('words');
   WORDS = JSON.parse(localData);
 
@@ -57,8 +60,8 @@ function App() {
 
   return (
     <Fragment>
-      <div className="logo_wrapper">
-        <div className="logo">SwitchWord</div>
+      <div className={styles.logoWrapper}>
+        <div className={styles.logo}>SwitchWord.</div>
         <MainButton showAndHide={showAndHideHandler} />
       </div>
       <>

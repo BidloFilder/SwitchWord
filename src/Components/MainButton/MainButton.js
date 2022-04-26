@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import './MainButton.css';
+import styles from './MainButton.module.scss';
+
 
 const MainButton = (props) => {
+  
   const [showList, setShowList] = useState(false);
   const [showWord, setShowWord] = useState('List');
 
@@ -18,7 +20,7 @@ const MainButton = (props) => {
   };
 
   return (
-    <button onClick={openWordsList} className="words_list_btn">
+    <button onClick={openWordsList} className={styles.mainButton}>
       {showWord}
     </button>
   );

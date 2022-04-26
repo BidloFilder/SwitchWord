@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+
+.wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template:
+    'm m m'
+    'i b r';
+  grid-template-columns: 3fr 1fr 3fr;
+
+  form {
+    display: grid;
+
+    .answer {
+      border: 2px solid #b9002e57;
+      padding-left: 1.5rem;
+      font-size: 3rem;
+      color: #ffffff;
+      border-radius: 5px;
+      justify-self: center;
+      align-self: flex-start;
+      width: 60%;
+      height: 15vh;
+      margin-top: 4rem;
+      margin-left: 13rem;
+      background: none;
+    }
+
+    .answer:focus {
+      outline: none;
+    }
+
+    .answer::placeholder {
+      color: #ffffffa1;
+    }
+
+    .answer:hover::placeholder {
+      color: transparent;
+    }
+  }
+
+  .guessWord {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    width: 60%;
+    height: 15vh;
+    background-color: #ffffff;
+    color: #b9002e;
+    border-radius: 5px;
+    cursor: default;
+    grid-area: r;
+    justify-self: center;
+    align-self: flex-start;
+    margin-top: 4rem;
+    margin-right: 13rem;
+  }
+
+  .showAnswerBtn {
+    width: 70%;
+    height: 6vh;
+    background: none;
+    color: #ffffff;
+    border: none;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    font-size: 1.4rem;
+    transition: 0.3s;
+    cursor: pointer;
+    grid-area: b;
+    justify-self: center;
+    align-self: flex-start;
+    margin-top: 6rem;
+  }
+
+  .showAnswerBtn:hover {
+    background-color: #ffffff;
+    color: #1d1d1d;
+    border-radius: 3px;
+  }
+
+  .reaction {
+    grid-area: m;
+    margin-top: 1rem;
+    font-size: 5rem;
+    color: #ffffff;
+    justify-self: center;
+    align-self: center;
+    cursor: default;
+    font-family: 'DM Serif Display', serif;
+  }
+}

@@ -1,0 +1,114 @@
+.optionsAndCards {
+  display: grid;
+  grid-template:
+    'i b f'
+    'l l l';
+  grid-template-columns: 1fr 1fr 1fr;
+
+  .listEmptyWarning {
+    font-size: 5rem;
+    color: #ffffff4d;
+    grid-area: l;
+    margin-top: 15rem;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .deleteAll {
+    border: 1px solid #b9002e57;
+    background: none;
+    color: #ffffff;
+    padding: 1.35rem 1rem;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    cursor: pointer;
+    grid-area: b;
+    justify-self: center;
+    align-self: flex-end;
+  }
+
+  .deleteAll:hover {
+    background: #ffffff;
+    color: #1d1d1d;
+    border-color: #1d1d1d;
+  }
+
+  form {
+    display: grid;
+    grid-template: 'w b t';
+    grid-template-columns: 2fr 1fr 2fr;
+    margin-top: 8rem;
+    margin-left: 3rem;
+    background: none;
+    border: 1px solid #b9002e57;
+    padding: 1rem;
+
+    input {
+      outline: none;
+      border: none;
+      font-size: 1.7rem;
+      width: 100%;
+      background: none;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    input:hover::placeholder {
+      color: transparent;
+    }
+
+    .addBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 35px;
+      height: 35px;
+      border: none;
+      background: none;
+      font-size: 1.1rem;
+      transition: 0.3s;
+      cursor: pointer;
+      grid-area: b;
+      justify-self: center;
+      align-self: center;
+    }
+
+    .addBtn:hover {
+      background-color: #ffffff;
+      border-radius: 5px;
+    }
+
+    .addBtn::after {
+      content: '';
+      position: absolute;
+      border-bottom: 3px solid #ffffff;
+      width: 25px;
+      transform: rotate(0deg);
+      transition: 0.3s;
+      border-radius: 10px;
+    }
+
+    .addBtn::before {
+      content: '';
+      position: absolute;
+      border-bottom: 3px solid #ffffff;
+      width: 25px;
+      transform: rotate(90deg);
+      transition: 0.3s;
+      border-radius: 10px;
+    }
+
+    .addBtn:hover::after {
+      border-bottom-color: #1d1d1d;
+    }
+
+    .addBtn:hover::before {
+      border-bottom-color: #1d1d1d;
+    }
+
+    .wordWarning,
+    .translationWarning {
+      background-color: #640021ce;
+    }
+  }
+}

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Lists from '../Lists/Lists';
-import './Inputs.css';
+import Lists from '../Cards/Card';
+import styles from './OptionsForCards.module.scss';
 
-const Inputs = (props) => {
+
+const OptionsForCards = (props) => {
+
   const [showEmptyListWarning, setShowEmptyListWarning] = useState(false);
   const [wordWarning, setWordWarning] = useState(false);
   const [translationWarning, setTranslationWarning] = useState(false);
@@ -20,6 +22,7 @@ const Inputs = (props) => {
       setShowEmptyListWarning(true);
     } else setShowEmptyListWarning(false);
   }, [listValue]);
+
 
   const passInputsValue = (event) => {
     event.preventDefault();
@@ -64,31 +67,29 @@ const Inputs = (props) => {
   };
 
   return (
-    <div className="words_list_box">
-      <form onSubmit={passInputsValue} autoComplete="off" className="list_form">
+    <div className={styles.optionsAndCards}>
+      <form onSubmit={passInputsValue} autoComplete="off">
         <input
           id="word"
           placeholder="Word"
-          className={wordWarning ? 'word_warning' : null}
+          className={wordWarning ? styles.wordWarning : null}
           onChange={wordIsValid}
         />
-        <button className="add_btn" type="submit">
-          Add Word
-        </button>
+        <button className={styles.addBtn} type="submit"></button>
         <input
           id="translation"
           placeholder="Translation"
-          className={translationWarning ? 'translation_warning' : null}
+          className={translationWarning ? styles.translationWarning : null}
           onChange={translationIsValid}
         />
       </form>
 
-      <button onClick={deleteAll} className="delete_all">
+      <button onClick={deleteAll} className={styles.deleteAll}>
         Delete All
       </button>
-      
+
       {showEmptyListWarning ? (
-        <span className="list_is_empty">List Is Empty</span>
+        <span className={styles.listEmptyWarning}>List Is Empty</span>
       ) : null}
 
       <Lists listValue={listValue} deleteWord={props.deleteWord} />
@@ -96,4 +97,4 @@ const Inputs = (props) => {
   );
 };
 
-export default Inputs;
+export default OptionsForCards;
