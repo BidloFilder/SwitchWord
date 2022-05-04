@@ -1,6 +1,10 @@
+$red: #b9002e57;
+$black: #1d1d1d;
+$white: #ffffff;
+
 .mainButton {
   background: none;
-  color: #ffffff;
+  color: $white;
   border: none;
   width: 15%;
   font-size: 1.5rem;
@@ -12,6 +16,6 @@
 }
 
 .mainButton:hover {
-  background-color: #ffffff;
-  color: #1d1d1d;
+  background-color: $white;
+  color: $black;
 }

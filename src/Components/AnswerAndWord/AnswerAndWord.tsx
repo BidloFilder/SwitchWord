@@ -1,6 +1,6 @@
 import { useState } from 'react';
+// @ts-ignore
 import styles from './AnswerAndWord.module.scss';
-
 
 const helloWords = [
   'Want some practice? Roger that.',
@@ -14,9 +14,11 @@ const getRandomWord = () => {
   return helloWords[Math.floor(Math.random() * helloWords.length)];
 };
 
+interface Props {
+  getWords: () => Array<any>;
+}
 
-const AnswerAndWord = (props) => {
-  
+const AnswerAndWord = (props: Props) => {
   const [answer, setAnswer] = useState(getRandomWord());
   const [answerBtn, setAnswerBtn] = useState('Show Answer');
 
@@ -42,7 +44,7 @@ const AnswerAndWord = (props) => {
     }
   };
 
-  const [word, setWord] = useState(convertRandomObjToArr());
+  const [word, setWord] = useState<Array<any>>(convertRandomObjToArr());
 
   const showAnswer = () => {
     if (answerBtn === 'Show Answer') {

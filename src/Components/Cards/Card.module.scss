@@ -1,3 +1,5 @@
+$white: #ffffff;
+
 .listCards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -33,14 +35,14 @@
     }
 
     .deleteCardBtn:hover {
-      background-color: #ffffff;
+      background-color: $white;
       border-radius: 3px;
     }
 
     .deleteCardBtn::after {
       content: '';
       position: absolute;
-      border-bottom: 3px solid #ffffff;
+      border-bottom: 3px solid $white;
       width: 25px;
       transform: rotate(-45deg);
       transition: 0.3s;
@@ -49,7 +51,7 @@
     .deleteCardBtn::before {
       content: '';
       position: absolute;
-      border-bottom: 3px solid #ffffff;
+      border-bottom: 3px solid $white;
       width: 25px;
       transform: rotate(45deg);
       transition: 0.3s;

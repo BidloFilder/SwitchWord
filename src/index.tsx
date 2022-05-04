@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
+// @ts-ignore
+import App from './App.tsx';
+// @ts-ignore
+import reportWebVitals from './reportWebVitals.tsx';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,4 +12,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+// @ts-ignore
 reportWebVitals();

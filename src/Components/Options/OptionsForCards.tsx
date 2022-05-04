@@ -1,43 +1,49 @@
 import React, { useEffect, useState } from 'react';
-import Lists from '../Cards/Card';
+// @ts-ignore
+import Lists from '../Cards/Card.tsx';
+// @ts-ignore
 import styles from './OptionsForCards.module.scss';
 
+interface Props {
+  deleteWordsHandler: (event: any) => void;
+  addNewWordsHandler: (word: any, translation: any) => Array<any>;
+  deleteAll: () => Array<any>;
+}
 
-const OptionsForCards = (props) => {
-
+const OptionsForCards = (props: Props) => {
   const [showEmptyListWarning, setShowEmptyListWarning] = useState(false);
   const [wordWarning, setWordWarning] = useState(false);
   const [translationWarning, setTranslationWarning] = useState(false);
-  const [listValue, setListValue] = useState(() => {
+
+  const [listCards, setListCards] = useState(() => {
     const localData = localStorage.getItem('words');
     return localData ? JSON.parse(localData) : [];
-  }, props.addWord);
+  });
 
   useEffect(() => {
-    localStorage.setItem('words', JSON.stringify(listValue));
-  }, [listValue]);
+    localStorage.setItem('words', JSON.stringify(listCards));
+  }, [listCards]);
 
   useEffect(() => {
-    if (listValue.length === 0) {
+    if (listCards.length === 0) {
       setShowEmptyListWarning(true);
     } else setShowEmptyListWarning(false);
-  }, [listValue]);
+  }, [listCards]);
 
-
-  const passInputsValue = (event) => {
+  const passInputsValue = (event: any) => {
     event.preventDefault();
 
-    let wordValue = event.target.word.value;
-    let translateValue = event.target.translation.value;
+    const wordValue = event.target.word.value.trim();
+    const translateValue = event.target.translation.value.trim();
 
-    if (wordWarning || translationWarning === true) {
+    if (wordWarning === true || translationWarning === true) {
       return undefined;
-    } else if ((wordValue, translateValue === '')) {
+    } else if (wordValue === '' || translateValue === '') {
       setWordWarning(true);
       setTranslationWarning(true);
     } else {
-      setListValue(
-        props.addWord(
+      setListCards(
+        props.addNewWordsHandler(
           wordValue.trim().charAt(0).toUpperCase() +
           wordValue.trim().slice(1).toLowerCase(),
           translateValue.trim().charAt(0).toUpperCase() +
@@ -49,21 +55,24 @@ const OptionsForCards = (props) => {
     }
   };
 
-  const deleteAll = () => {
-    setListValue([]);
-    props.deleteAll();
-  };
-
-  const translationIsValid = (event) => {
-    if (!isNaN(event.target.value)) {
+  const translationIsValid = (event: any) => {
+    if (!isNaN(event.target.value.trim())) {
       setTranslationWarning(true);
     } else setTranslationWarning(false);
   };
 
-  const wordIsValid = (event) => {
-    if (!isNaN(event.target.value)) {
+  const wordIsValid = (event: any) => {
+    if (!isNaN(event.target.value.trim())) {
       setWordWarning(true);
     } else setWordWarning(false);
+  };
+
+  const deleteWord = (event: any) => {
+    setListCards(props.deleteWordsHandler(event));
+  };
+
+  const deleteAll = () => {
+    setListCards(props.deleteAll());
   };
 
   return (
@@ -92,7 +101,7 @@ const OptionsForCards = (props) => {
         <span className={styles.listEmptyWarning}>List Is Empty</span>
       ) : null}
 
-      <Lists listValue={listValue} deleteWord={props.deleteWord} />
+      <Lists listValue={listCards} deleteWord={deleteWord} />
     </div>
   );
 };

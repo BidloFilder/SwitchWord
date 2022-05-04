@@ -1,9 +1,12 @@
 import { useState } from 'react';
+// @ts-ignore
 import styles from './MainButton.module.scss';
 
+interface Props {
+  showAndHideHandler: (showList: boolean) => undefined;
+}
 
-const MainButton = (props) => {
-  
+const MainButton = (props: Props) => {
   const [showList, setShowList] = useState(false);
   const [showWord, setShowWord] = useState('List');
 
@@ -11,11 +14,11 @@ const MainButton = (props) => {
     if (!showList) {
       setShowList(true);
       setShowWord('Main');
-      props.showAndHide(showList);
+      props.showAndHideHandler(showList);
     } else if (showList) {
       setShowList(false);
       setShowWord('List');
-      props.showAndHide(showList);
+      props.showAndHideHandler(showList);
     }
   };
 

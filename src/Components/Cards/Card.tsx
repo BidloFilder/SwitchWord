@@ -1,14 +1,19 @@
+// @ts-ignore
 import styles from './Card.module.scss';
 
+interface Props {
+  listValue: Array<any>;
+  deleteWord: (event: any) => void;
+};
 
-const Card = (props) => {
 
+const Card = (props: Props) => {
   return (
     <div className={styles.listCards}>
-      {props.listValue.map((value) => {
+      {props.listValue.map((value: object) => {
         return (
-          <div key={value.id}>
-            <div className={styles.card}>
+          //@ts-ignore
+            <div className={styles.card} key={value.id} id={value.id}>
               <span
                 style={{
                   fontWeight: '100',
@@ -37,7 +42,6 @@ const Card = (props) => {
                   Object.values(value)[0].slice(1).toLowerCase()}
               </span>
             </div>
-          </div>
         );
       })}
     </div>
