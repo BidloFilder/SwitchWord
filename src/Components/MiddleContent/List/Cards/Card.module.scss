@@ -1,0 +1,58 @@
+$white: #ffffff;
+$gray: #555555;
+$red: #b9002e57;
+
+.card {
+  display: grid;
+  position: relative;
+  border: 1px solid #181818;
+  font-weight: lighter;
+  font-size: 2rem;
+  box-shadow: 0px 0px 5px #0e0e0e;
+  cursor: default;
+  grid-template: 
+  "word delete translation" / 1fr 1fr 1fr;
+
+  .deleteCardBtn {
+    display: flex;
+    border: none;
+    background: none;
+    transition: 0.3s;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    align-self: center;
+    justify-self: center;
+    grid-area: delete;
+  }
+
+  .deleteCardBtn::after {
+    content: '';
+    position: absolute;
+    border-bottom: 3px solid $gray;
+    width: 25px;
+    transform: rotate(-45deg);
+    transition: 0.3s;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .deleteCardBtn::before {
+    content: '';
+    position: absolute;
+    border-bottom: 3px solid $gray;
+    width: 25px;
+    transform: rotate(45deg);
+    transition: 0.3s;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .deleteCardBtn:hover::after {
+    border-bottom-color: $white;
+  }
+
+  .deleteCardBtn:hover::before {
+    border-bottom-color: $white;
+  }
+}

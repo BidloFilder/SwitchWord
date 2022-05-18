@@ -1,23 +1,20 @@
 // @ts-ignore
 import styles from './App.module.scss';
 // @ts-ignore
-import AnswerAndWord from './Components/AnswerAndWord/AnswerAndWord.tsx';
+import AnswerAndWord from './Components/MiddleContent/MainScreen/AnswerAndWord/AnswerAndWord.tsx';
 // @ts-ignore
-import MainButton from './Components/MainButton/MainButton.tsx';
+import MainButton from './Components/TopContent/MainButton.tsx';
 // @ts-ignore
-import OptionsForCards from './Components/Options/OptionsForCards.tsx';
-import { useEffect, useState } from 'react';
+import OptionsForCards from './Components/MiddleContent/List/Options/List.tsx';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 let WORDS = [];
+WORDS = JSON.parse(localStorage.getItem('words'));
 
 function App() {
   const [showTranslate, setShowTranslate] = useState(true);
   const [showLists, setShowLists] = useState(false);
-
-  useEffect(() => {
-    WORDS = JSON.parse(localStorage.getItem('words'));
-  });
 
   const showAndHideHandler = (showList: boolean) => {
     if (!showList) {
@@ -57,21 +54,29 @@ function App() {
   };
 
   return (
-    <div>
-      <div className={styles.logoWrapper}>
-        <div className={styles.logo}>SwitchWord.</div>
-        <MainButton showAndHideHandler={showAndHideHandler} />
-      </div>
-      <>
-        {showLists ? (
-          <OptionsForCards
-            deleteWordsHandler={deleteWordsHandler}
-            addNewWordsHandler={addNewWordsHandler}
-            deleteAll={deleteAll}
-          />
+    <div className={styles.mainBox}>
+      <div className={styles.innerBox}>
+        <div className={styles.topBox}>
+          <span className={styles.logo}>SwitchWord.</span>
+          <MainButton showAndHideHandler={showAndHideHandler} />
+        </div>
+
+        {showTranslate ? (
+          <div className={styles.middleBox}>
+            <AnswerAndWord getWords={getWords} />
+          </div>
         ) : null}
-      </>
-      <>{showTranslate ? <AnswerAndWord getWords={getWords} /> : null}</>
+
+        {showLists ? (
+          <div className={styles.cardsBox}>
+            <OptionsForCards
+              deleteWordsHandler={deleteWordsHandler}
+              addNewWordsHandler={addNewWordsHandler}
+              deleteAll={deleteAll}
+            />
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 }

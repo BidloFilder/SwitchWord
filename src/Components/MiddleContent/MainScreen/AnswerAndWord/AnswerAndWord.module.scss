@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+
+$red: #b9002e57;
+$black: #1d1d1d;
+$white: #ffffff;
+$gray: #555555;
+
+
+.answerForm {
+  grid-area: answer;
+  justify-self: flex-end;
+  align-self: center;
+  display: grid;
+
+  .answer {
+    border: none;
+    justify-self: flex-end;
+    align-self: center;
+    font-size: 3.5rem;
+    color: #ffffff;
+    background: none;
+    text-align: right;
+    width: 100%;
+  }
+
+  .answer:focus {
+    outline: none;
+  }
+
+  .answer::placeholder {
+    color: $gray;
+  }
+
+  .answer:hover::placeholder {
+    color: #ffffffa1;
+  }
+}
+
+.guessWord {
+  grid-area: word;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 3.5rem;
+  color: $white;
+  cursor: default;
+}
+
+.showTranslationBtn {
+  grid-area: translation;
+  background: none;
+  color: $gray;
+  border: none;
+  font-size: 1.5rem;
+  transition: 0.3s;
+  cursor: pointer;
+  justify-self: center;
+}
+
+.showTranslationBtn:hover {
+  color: $white;
+}
+
+.message {
+  justify-self: center;
+  align-self: center;
+  grid-area: message;
+  margin-top: 1rem;
+  font-size: 3rem;
+  color: $white;
+  cursor: default;
+  letter-spacing: 2px;
+  font-family: 'Koulen', cursive;
+}

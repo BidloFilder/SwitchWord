@@ -1,0 +1,21 @@
+$red: #b9002e57;
+$black: #1d1d1d;
+$white: #ffffff;
+$gray: #555555;
+
+.mainButton {
+  background: none;
+  color: $gray;
+  border: none;
+  font-size: 1.2rem;
+  transition: 0.3s;
+  cursor: pointer;
+  grid-area: navigation;
+  justify-self: flex-start;
+  align-self: center;
+  margin-left: .5rem;
+}
+
+.mainButton:hover {
+  color: $white;
+}

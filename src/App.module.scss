@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400&family=Maven+Pro&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Serif+Display&display=swap');
 
 $black: #1d1d1d;
 $white: #ffffff;
@@ -15,21 +14,55 @@ body {
   background-color: $black;
 }
 
-.logoWrapper {
-  width: 100%;
-  background-color: $black;
+.mainBox {
+  height: 100vh;
   display: grid;
-  grid-template: 'l li a';
-  grid-template-columns: 1fr 1fr 1fr;
-  position: fixed;
-  z-index: 1;
+  grid-template-columns: 1fr 4fr 1fr;
 
-  .logo {
-    grid-area: l;
-    color: $white;
-    font-size: 2rem;
-    font-weight: bold;
-    cursor: default;
-    padding: 0.6rem 0 0.6rem 3rem;
+  .innerBox {
+    height: 100vh;
+    grid-column: 2/2;
+    display: grid;
+    grid-template:
+      'topContent' 1fr
+      'middleContent' 5fr
+      'footerContent' 1fr;
+
+    .topBox {
+      background-color: $black;
+      grid-area: topContent;
+      display: grid;
+      grid-template: 'logo navigation .' / 1fr 2fr 3fr;
+      height: 10vh;
+
+      .logo {
+        grid-area: logo;
+        color: $white;
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+        font-weight: bold;
+        cursor: default;
+        justify-self: flex-start;
+        align-self: center;
+      }
+    }
+
+    .middleBox {
+      grid-area: middleContent;
+      display: grid;
+      grid-template:
+        'message message message' 1fr
+        'answer icon word' 3fr
+        'translation translation translation' 1fr
+        / 2fr 1fr 2fr;
+    }
+
+    .cardsBox {
+      display: grid;
+      grid-template: 
+      'filter options delete' 1fr
+      'box box box' 5fr
+      / 1fr 1fr 1fr;
+    }
   }
 }
