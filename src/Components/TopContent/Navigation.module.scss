@@ -1,0 +1,52 @@
+$red: #b9002e57;
+$black: #1d1d1d;
+$white: #ffffff;
+$gray: #555555;
+
+.home {
+  background: none;
+  color: $gray;
+  border: none;
+  font-size: 1.5rem;
+  transition: 0.3s;
+  cursor: pointer;
+  grid-area: navigation;
+  justify-self: flex-start;
+  align-self: center;
+}
+
+.home:hover {
+  color: $white;
+}
+
+.list {
+  background: none;
+  color: $gray;
+  border: none;
+  font-size: 1.5rem;
+  transition: 0.3s;
+  cursor: pointer;
+  grid-area: navigation;
+  justify-self: center;
+  align-self: center;
+}
+
+.list:hover {
+  color: $white;
+}
+
+.about {
+  background: none;
+  color: $gray;
+  border: none;
+  font-size: 1.5rem;
+  transition: 0.3s;
+  cursor: pointer;
+  grid-area: navigation;
+  justify-self: flex-end;
+  align-self: center;
+}
+
+.about:hover {
+  color: $white;
+}

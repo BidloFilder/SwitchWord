@@ -4,106 +4,91 @@ $white: #ffffff;
 $gray: #555555;
 
 .filter {
-    border: none;
-    background: none;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 1.4rem;
+  width: 50%;
+  height: 5vh;
+  align-self: center;
+  color: $white;
+  border-bottom: 1px solid $gray;
+}
+
+.filter:hover {
+  border-color: $white;
+  transition: .3s;
+}
+
+.filter:hover::placeholder {
+  color: transparent;
+  transition: .3s;
+}
+
+.deleteAll {
+  border: none;
+  background: none;
+  justify-self: center;
+  align-self: center;
+  color: $gray;
+  font-size: 1.6rem;
+  transition: 0.3s;
+  cursor: pointer;
+  grid-area: delete;
+}
+
+.deleteAll:hover {
+  color: $white;
+}
+
+.optionsForm {
+  display: grid;
+  grid-template: 'word button translation';
+  background: none;
+  grid-area: options;
+  justify-self: center;
+  align-self: center;
+
+  input {
     outline: none;
-    font-size: 1.2rem;
-    width: 50%;
-    height: 5vh;
-    align-self: center;
+    border: none;
+    font-size: 1.4rem;
+    width: 100%;
+    background: none;
     color: $white;
-    border-bottom: 1px solid $gray;
+    text-align: center;
+    transition: 0.3s;
   }
 
-  .deleteAll {
+  input:hover::placeholder {
+    color: transparent;
+    transition: 0.3s;
+  }
+
+  input::placeholder {
+    color: $gray;
+  }
+
+  .addBtn {
+    color: $gray;
     border: none;
     background: none;
-    justify-self: flex-end;
-    align-self: center;
-    color: $gray;
-    font-size: 1.2rem;
     transition: 0.3s;
     cursor: pointer;
-    grid-area: delete;
+    justify-self: center;
+    align-self: center;
+    font-size: 2.1rem;
   }
-  
-  .deleteAll:hover {
+
+  .addBtn:hover {
     color: $white;
   }
 
-  .optionsForm {
-    display: grid;
-    grid-template: 'word button translation';
-    background: none;
-    grid-area: options;
-    justify-self: center;
-    align-self: center;
-  
-    input {
-      outline: none;
-      border: none;
-      font-size: 1.2rem;
-      width: 100%;
-      background: none;
-      color: $white;
-      text-align: center;
-      transition: 0.2s;
-    }
-  
-    input:hover::placeholder {
-      color: transparent;
-      transition: 0.1s;
-    }
-  
-    input::placeholder {
-      color: $gray;
-    }
-  
-    .addBtn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 35px;
-      height: 35px;
-      border: none;
-      background: none;
-      transition: 0.3s;
-      cursor: pointer;
-      justify-self: center;
-      align-self: center;
-    }
-  
-    .addBtn::after {
-      content: '';
-      position: absolute;
-      border-bottom: 3px solid $gray;
-      width: 20px;
-      transform: rotate(0deg);
-      transition: 0.3s;
-    }
-  
-    .addBtn::before {
-      content: '';
-      position: absolute;
-      border-bottom: 3px solid $gray;
-      width: 20px;
-      transform: rotate(90deg);
-      transition: 0.3s;
-    }
-  
-    .addBtn:hover::after {
-      border-bottom-color: $white;
-    }
-  
-    .addBtn:hover::before {
-      border-bottom-color: $white;
-    }
-  
-    .wordWarning,
-    .translationWarning,
-    .wordWarning::placeholder,
-    .translationWarning::placeholder {
-      transition: 0.1s;
-      color: $red;
-    }
+  .wordWarning,
+  .translationWarning,
+  .wordWarning::placeholder,
+  .translationWarning::placeholder {
+    transition: 0.1s;
+    color: $red;
   }
+}

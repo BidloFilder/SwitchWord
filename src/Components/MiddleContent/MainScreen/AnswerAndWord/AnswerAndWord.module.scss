@@ -55,20 +55,26 @@ $gray: #555555;
   transition: 0.3s;
   cursor: pointer;
   justify-self: center;
+  align-self: flex-end;
 }
 
 .showTranslationBtn:hover {
   color: $white;
 }
 
-.message {
+.translation {
+  grid-area: arrow;
+  color: $white;
+  justify-self: center;
+  align-self: flex-end;
+  font-size: 1.5rem;
+  cursor: default;
+}
+
+.arrow {
+  grid-area: arrow;
   justify-self: center;
   align-self: center;
-  grid-area: message;
-  margin-top: 1rem;
-  font-size: 3rem;
+  font-size: 5rem;
   color: $white;
-  cursor: default;
-  letter-spacing: 2px;
-  font-family: 'Koulen', cursive;
 }

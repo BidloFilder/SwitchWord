@@ -3,29 +3,25 @@ import styles from './App.module.scss';
 // @ts-ignore
 import AnswerAndWord from './Components/MiddleContent/MainScreen/AnswerAndWord/AnswerAndWord.tsx';
 // @ts-ignore
-import MainButton from './Components/TopContent/MainButton.tsx';
+import ErrorPage from './Components/MiddleContent/MainScreen/ErrorPage/ErrorPage.tsx';
 // @ts-ignore
-import OptionsForCards from './Components/MiddleContent/List/Options/List.tsx';
-import React, { useState } from 'react';
+import List from './Components/MiddleContent/List/Options/List.tsx';
+// @ts-ignore
+import AboutPage from './Components/MiddleContent/MainScreen/AboutPage/AboutPage.tsx';
+// @ts-ignore
+import Navigation from './Components/TopContent/Navigation.tsx';
+// @ts-ignore
+import style from '../src/Components/TopContent/Navigation.module.scss';
+import { AiOutlineUnorderedList } from 'react-icons/ai';
+import { RiHome2Line } from 'react-icons/ri';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
+import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
 let WORDS = [];
 WORDS = JSON.parse(localStorage.getItem('words'));
 
 function App() {
-  const [showTranslate, setShowTranslate] = useState(true);
-  const [showLists, setShowLists] = useState(false);
-
-  const showAndHideHandler = (showList: boolean) => {
-    if (!showList) {
-      setShowTranslate(false);
-      setShowLists(true);
-    } else if (showList) {
-      setShowTranslate(true);
-      setShowLists(false);
-    }
-  };
-
   const addNewWordsHandler = (word: string, translation: string) => {
     let object = { [word]: translation, id: uuidv4() };
     WORDS = [object, ...WORDS];
@@ -54,30 +50,57 @@ function App() {
   };
 
   return (
-    <div className={styles.mainBox}>
-      <div className={styles.innerBox}>
-        <div className={styles.topBox}>
-          <span className={styles.logo}>SwitchWord.</span>
-          <MainButton showAndHideHandler={showAndHideHandler} />
-        </div>
-
-        {showTranslate ? (
-          <div className={styles.middleBox}>
-            <AnswerAndWord getWords={getWords} />
-          </div>
-        ) : null}
-
-        {showLists ? (
-          <div className={styles.cardsBox}>
-            <OptionsForCards
-              deleteWordsHandler={deleteWordsHandler}
-              addNewWordsHandler={addNewWordsHandler}
-              deleteAll={deleteAll}
+    <Router>
+      <div className={styles.mainBox}>
+        <div className={styles.innerBox}>
+          <div className={styles.topBox}>
+            <span className={styles.logo}>SwitchWord.</span>
+            <Navigation
+              icon={<RiHome2Line />}
+              style={style.home}
+              navigateTo={'/'}
+            />
+            <Navigation
+              icon={<AiOutlineUnorderedList />}
+              style={style.list}
+              navigateTo={'list'}
+            />
+            <Navigation
+              icon={<AiOutlineInfoCircle />}
+              style={style.about}
+              navigateTo={'about'}
             />
           </div>
-        ) : null}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div className={styles.middleBox}>
+                  <AnswerAndWord getWords={getWords} />
+                </div>
+              }
+            />
+
+            <Route path="about" element={<AboutPage />} />
+
+            <Route path="*" element={<ErrorPage />} />
+
+            <Route
+              path="list"
+              element={
+                <div className={styles.cardsBox}>
+                  <List
+                    deleteWordsHandler={deleteWordsHandler}
+                    addNewWordsHandler={addNewWordsHandler}
+                    deleteAll={deleteAll}
+                  />
+                </div>
+              }
+            />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

@@ -1,26 +1,17 @@
 import { useState } from 'react';
 // @ts-ignore
 import styles from './AnswerAndWord.module.scss';
+import { BiShow } from 'react-icons/bi';
+import { MdOutlineTranslate } from 'react-icons/md';
+import { BiChevronsRight } from 'react-icons/bi';
 
-const helloWords = [
-  'Want some practice? Roger that.',
-  "Let's get this done.",
-  'Time to practice.',
-  'Now, we are ready to start.',
-  'Dedicating time to something productive.',
-];
-
-const getRandomHelloWord = () => {
-  return helloWords[Math.floor(Math.random() * helloWords.length)];
-};
 
 interface Props {
   getWords: () => Array<any>;
 }
 
 const AnswerAndWord = (props: Props) => {
-  const [answer, setAnswer] = useState(getRandomHelloWord());
-  const [answerToggle, setAnswerToggle] = useState(true);
+  const [translation, setTranslation] = useState('');
 
   //Get random object from "WORDS" array
   const getRandomObjFromArr = () => {
@@ -45,14 +36,11 @@ const AnswerAndWord = (props: Props) => {
     let answer = word[0][1];
 
     if (word[0][0] === 'List is Empty') {
-      setAnswer('List is Empty');
-      setAnswerToggle(false);
-    } else if (answerToggle) {
-      setAnswerToggle(false);
-      setAnswer(answer);
-    } else if (!answerToggle) {
-      setAnswerToggle(true);
-      setAnswer('Continue');
+      setTranslation('List is Empty');
+    } else if (translation === '') {
+      setTranslation(answer);
+    } else if (translation !== '') {
+      setTranslation('');
     }
   };
 
@@ -62,18 +50,16 @@ const AnswerAndWord = (props: Props) => {
     let translation = word[0][1].toLowerCase().trim();
 
     if (answer === translation) {
-      setAnswer('Correct!');
       setWord(convertRandomObjToArr());
+      setTranslation('');
     }
     if (answer !== translation) {
-      setAnswer('Wrong!');
     }
     event.target.answer.value = '';
   };
 
   return (
     <>
-      <div className={styles.message}>{answer}</div>
       <form onSubmit={checkAnswerHandler} className={styles.answerForm}>
         <input
           id="answer"
@@ -83,14 +69,17 @@ const AnswerAndWord = (props: Props) => {
         />
       </form>
 
-      <p className={styles.guessWord}>{word[0][0]}</p>
+      <BiChevronsRight className={styles.arrow} />
 
+      <span className={styles.guessWord}>{word[0][0]}</span>
+      <span className={styles.translation}>{translation}</span>
       <button
         className={styles.showTranslationBtn}
         type="button"
         onClick={showTranslation}
       >
-        translation
+        <BiShow />
+        <MdOutlineTranslate />
       </button>
     </>
   );

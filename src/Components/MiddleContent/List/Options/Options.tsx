@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 // @ts-ignore
 import styles from './Options.module.scss';
+import { MdAdd } from 'react-icons/md';
+import { MdOutlineDeleteSweep } from 'react-icons/md';
 
 interface Props {
   filterCards: (event: any) => void;
@@ -42,7 +44,7 @@ const OptionsInterface = (props: Props) => {
   return (
     <>
       <input
-        placeholder="Search"
+        placeholder='Search'
         onChange={props.filterCards}
         className={styles.filter}
       />
@@ -58,7 +60,7 @@ const OptionsInterface = (props: Props) => {
           onChange={wordIsValid}
         />
 
-        <button className={styles.addBtn} type="submit"></button>
+        <button className={styles.addBtn} type="submit"><MdAdd /></button>
 
         <input
           id="translation"
@@ -69,7 +71,7 @@ const OptionsInterface = (props: Props) => {
       </form>
 
       <button onClick={props.deleteAll} className={styles.deleteAll}>
-        Delete All
+      <MdOutlineDeleteSweep />
       </button>
     </>
   );

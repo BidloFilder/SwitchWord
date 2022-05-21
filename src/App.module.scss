@@ -32,18 +32,20 @@ body {
       background-color: $black;
       grid-area: topContent;
       display: grid;
-      grid-template: 'logo navigation .' / 1fr 2fr 3fr;
-      height: 10vh;
+      grid-template: 'logo navigation .' / 4fr 1fr 4fr;
+      height: 15vh;
 
       .logo {
         grid-area: logo;
         color: $white;
-        font-size: 1.8rem;
+        font-size: 2rem;
         letter-spacing: 1px;
         font-weight: bold;
         cursor: default;
         justify-self: flex-start;
         align-self: center;
+        margin-right: 0.5rem;
+        margin-bottom: 0.6rem;
       }
     }
 
@@ -51,18 +53,17 @@ body {
       grid-area: middleContent;
       display: grid;
       grid-template:
-        'message message message' 1fr
-        'answer icon word' 3fr
+        'answer arrow word' 7fr
         'translation translation translation' 1fr
         / 2fr 1fr 2fr;
     }
 
     .cardsBox {
       display: grid;
-      grid-template: 
-      'filter options delete' 1fr
-      'box box box' 5fr
-      / 1fr 1fr 1fr;
+      grid-template:
+        'filter options delete' 1fr
+        'box box box' 5fr
+        / 1fr 1fr 1fr;
     }
   }
 }

@@ -1,5 +1,6 @@
 // @ts-ignore
 import styles from './Card.module.scss';
+import { TiDeleteOutline } from 'react-icons/ti';
 
 interface Props {
   listValue: Array<any>;
@@ -14,32 +15,20 @@ const Card = (props: Props) => {
           //@ts-ignore
           <div className={styles.card} key={value.id} id={value.id}>
             <span
-              style={{
-                fontWeight: '100',
-                color: '#ffffff',
-                justifySelf: 'center',
-                alignSelf: 'center',
-                gridArea: 'word',
-              }}
+              className={styles.word}
             >
               {Object.keys(value)[0].charAt(0).toUpperCase() +
                 Object.keys(value)[0].slice(1).toLowerCase()}
             </span>
 
-            <button
-              className={styles.deleteCardBtn}
-              onClick={props.deleteWord}
+            <TiDeleteOutline
               type="button"
-            ></button>
+              onClick={props.deleteWord}
+              className={styles.deleteCardBtn}
+            />
 
             <span
-              style={{
-                fontWeight: '100',
-                color: '#ffffff',
-                justifySelf: 'center',
-                alignSelf: 'center',
-                gridArea: 'translation',
-              }}
+              className={styles.translation}
             >
               {Object.values(value)[0].charAt(0).toUpperCase() +
                 Object.values(value)[0].slice(1).toLowerCase()}
