@@ -1,25 +1,60 @@
-// @ts-ignore
 import styles from './App.module.scss';
-// @ts-ignore
-import AnswerAndWord from './Components/MiddleContent/MainScreen/AnswerAndWord/AnswerAndWord.tsx';
-// @ts-ignore
-import ErrorPage from './Components/MiddleContent/MainScreen/ErrorPage/ErrorPage.tsx';
-// @ts-ignore
-import List from './Components/MiddleContent/List/Options/List.tsx';
-// @ts-ignore
-import AboutPage from './Components/MiddleContent/MainScreen/AboutPage/AboutPage.tsx';
-// @ts-ignore
-import Navigation from './Components/TopContent/Navigation.tsx';
-// @ts-ignore
+import MainContent from './Components/MiddleContent/MainScreen/MainContent/MainContent';
+import ErrorPage from './Components/MiddleContent/MainScreen/ErrorPage/ErrorPage';
+import List from './Components/MiddleContent/List/Options/List';
+import AboutPage from './Components/MiddleContent/MainScreen/AboutPage/AboutPage';
+import Navigation from './Components/TopContent/Navigation';
 import style from '../src/Components/TopContent/Navigation.module.scss';
 import { AiOutlineUnorderedList } from 'react-icons/ai';
 import { RiHome2Line } from 'react-icons/ri';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
-import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { motion } from 'framer-motion';
 
-let WORDS = [];
+let WORDS: Array<object> = [];
 WORDS = JSON.parse(localStorage.getItem('words'));
+
+const logoAnimation = {
+  initial: {
+    opacity: 0,
+    y: -100,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      delay: 0.5,
+      duration: 1,
+    },
+  },
+};
+
+const topBoxAnimation = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      delay: 0.7,
+    },
+  },
+};
+
+const middleBoxAnimation = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      delay: 0.1,
+    },
+  },
+};
 
 function App() {
   const addNewWordsHandler = (word: string, translation: string) => {
@@ -32,11 +67,11 @@ function App() {
     let id = event.target.parentNode.id;
 
     WORDS = WORDS.filter(
-      // @ts-ignore
-      (item: object) => item.id !== id
+      (item: any) => item.id !== id
     );
     return WORDS;
   };
+
 
   const deleteAll = () => {
     WORDS = [];
@@ -50,57 +85,70 @@ function App() {
   };
 
   return (
-    <Router>
-      <div className={styles.mainBox}>
-        <div className={styles.innerBox}>
-          <div className={styles.topBox}>
-            <span className={styles.logo}>SwitchWord.</span>
-            <Navigation
-              icon={<RiHome2Line />}
-              style={style.home}
-              navigateTo={'/'}
-            />
-            <Navigation
-              icon={<AiOutlineUnorderedList />}
-              style={style.list}
-              navigateTo={'list'}
-            />
-            <Navigation
-              icon={<AiOutlineInfoCircle />}
-              style={style.about}
-              navigateTo={'about'}
-            />
-          </div>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <div className={styles.middleBox}>
-                  <AnswerAndWord getWords={getWords} />
-                </div>
-              }
-            />
+    <div className={styles.mainBox}>
+      <div className={styles.innerBox}>
+        <motion.div
+          variants={topBoxAnimation}
+          initial="initial"
+          animate="animate"
+          className={styles.topBox}
+        >
+          <motion.span
+            className={styles.logo}
+            variants={logoAnimation}
+            initial="initial"
+            animate="animate"
+          ></motion.span>
+          <Navigation
+            icon={<RiHome2Line />}
+            style={style.home}
+            navigateTo={'/'}
+          />
+          <Navigation
+            icon={<AiOutlineUnorderedList />}
+            style={style.list}
+            navigateTo={'list'}
+          />
+          <Navigation
+            icon={<AiOutlineInfoCircle />}
+            style={style.about}
+            navigateTo={'about'}
+          />
+        </motion.div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <motion.div
+                className={styles.middleBox}
+                variants={middleBoxAnimation}
+                initial="initial"
+                animate="animate"
+              >
+                <MainContent getWords={getWords} />
+              </motion.div>
+            }
+          />
 
-            <Route path="about" element={<AboutPage />} />
+          <Route path="about" element={<AboutPage />} />
 
-            <Route path="*" element={<ErrorPage />} />
+          <Route path="*" element={<ErrorPage />} />
 
-            <Route
-              path="list"
-              element={
-                <div className={styles.cardsBox}>
-                  <List
-                    deleteWordsHandler={deleteWordsHandler}
-                    addNewWordsHandler={addNewWordsHandler}
-                    deleteAll={deleteAll}
-                  />
-                </div>
-              }
-            />
-          </Routes>
-        </div>
+          <Route
+            path="list"
+            element={
+              <div className={styles.cardsBox}>
+                <List
+                  deleteWordsHandler={deleteWordsHandler}
+                  addNewWordsHandler={addNewWordsHandler}
+                  deleteAll={deleteAll}
+                />
+              </div>
+            }
+          />
+        </Routes>
       </div>
-    </Router>
+    </div>
   );
 }
 

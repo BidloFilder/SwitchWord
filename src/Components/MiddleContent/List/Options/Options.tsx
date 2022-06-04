@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-// @ts-ignore
 import styles from './Options.module.scss';
-import { MdAdd } from 'react-icons/md';
+import { RiAddFill } from 'react-icons/ri';
 import { MdOutlineDeleteSweep } from 'react-icons/md';
+import { motion } from 'framer-motion';
 
 interface Props {
   filterCards: (event: any) => void;
@@ -15,36 +15,49 @@ const OptionsInterface = (props: Props) => {
   const [translationWarning, setTranslationWarning] = useState(false);
 
   const translationIsValid = (event: any) => {
-    if (!isNaN(event.target.value.trim())) {
+    let translation = event.target.value.trim();
+
+    if (/\d/.test(translation)) {
       setTranslationWarning(true);
     } else setTranslationWarning(false);
   };
 
   const wordIsValid = (event: any) => {
-    if (!isNaN(event.target.value.trim())) {
+    let word = event.target.value.trim();
+
+    if (/\d/.test(word)) {
       setWordWarning(true);
     } else setWordWarning(false);
   };
 
   const passAndCheck = (event: any) => {
-    event.preventDefault()
+    event.preventDefault();
     let wordValue = event.target.word.value.trim();
     let translateValue = event.target.translation.value.trim();
 
     if (wordWarning === true || translationWarning === true) {
       return undefined;
-    } else if (wordValue === '' || translateValue === '') {
-      setWordWarning(true);
+    } else if (translateValue === '' && wordValue === '') {
       setTranslationWarning(true);
+      setWordWarning(true);
+    } else if (translateValue === '') {
+      setTranslationWarning(true);
+    } else if (wordValue === '') {
+      setWordWarning(true);
     } else {
       props.passInputsValue(event);
     }
   };
 
   return (
-    <>
+    <motion.div
+      className={styles.options}
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, type: 'spring' }}
+    >
       <input
-        placeholder='Search'
+        placeholder="Search"
         onChange={props.filterCards}
         className={styles.filter}
       />
@@ -60,7 +73,9 @@ const OptionsInterface = (props: Props) => {
           onChange={wordIsValid}
         />
 
-        <button className={styles.addBtn} type="submit"><MdAdd /></button>
+        <button className={styles.addBtn} type="submit">
+          <RiAddFill />
+        </button>
 
         <input
           id="translation"
@@ -71,9 +86,9 @@ const OptionsInterface = (props: Props) => {
       </form>
 
       <button onClick={props.deleteAll} className={styles.deleteAll}>
-      <MdOutlineDeleteSweep />
+        <MdOutlineDeleteSweep />
       </button>
-    </>
+    </motion.div>
   );
 };
 

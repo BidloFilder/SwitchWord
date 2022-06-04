@@ -1,4 +1,4 @@
-$red: #b9002e57;
+$red: #dc143c;
 $black: #1d1d1d;
 $white: #ffffff;
 $gray: #555555;
@@ -14,18 +14,58 @@ $gray: #555555;
 .cardWrapper {
   grid-area: box;
   padding-top: 1rem;
-  height: 65vh;
   grid-auto-rows: 60px;
+  gap: 15px;
   display: grid;
   overflow-y: auto;
 }
 
 .cardWrapper::-webkit-scrollbar {
   background-color: $black;
-  width: 0.5rem;
+  width: 0.4rem;
 }
 
 .cardWrapper::-webkit-scrollbar-thumb {
   background-color: $gray;
   border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+  .cardWrapper {
+    height: 60vh;
+  }
+
+  .cardWrapper::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .cardWrapper {
+    grid-auto-rows: 50px;
+  }
+
+  .cardWrapper::-webkit-scrollbar {
+    width: 0.2rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .cardWrapper {
+    grid-auto-rows: 40px;
+  }
+
+  .cardWrapper::-webkit-scrollbar {
+    width: 0.1rem;
+  }
+
+  .listEmptyWarning {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .listEmptyWarning {
+    font-size: 2rem;
+  }
 }

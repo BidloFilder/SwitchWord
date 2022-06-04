@@ -1,39 +1,43 @@
-// @ts-ignore
 import styles from './Card.module.scss';
-import { TiDeleteOutline } from 'react-icons/ti';
+import { FiDelete } from 'react-icons/fi';
+import { motion } from 'framer-motion';
 
 interface Props {
-  listValue: Array<any>;
+  listValue: Array<object>;
   deleteWord: (event: any) => void;
 }
 
 const Card = (props: Props) => {
   return (
     <>
-      {props.listValue.map((value: object) => {
+      {props.listValue.map((value) => {
         return (
-          //@ts-ignore
-          <div className={styles.card} key={value.id} id={value.id}>
-            <span
-              className={styles.word}
-            >
+          <motion.div
+            //@ts-ignore
+            key={value.id}
+            //@ts-ignore
+            id={value.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className={styles.card}
+          >
+            <span className={styles.word}>
               {Object.keys(value)[0].charAt(0).toUpperCase() +
                 Object.keys(value)[0].slice(1).toLowerCase()}
             </span>
 
-            <TiDeleteOutline
+            <FiDelete
               type="button"
               onClick={props.deleteWord}
               className={styles.deleteCardBtn}
             />
 
-            <span
-              className={styles.translation}
-            >
+            <span className={styles.translation}>
               {Object.values(value)[0].charAt(0).toUpperCase() +
                 Object.values(value)[0].slice(1).toLowerCase()}
             </span>
-          </div>
+          </motion.div>
         );
       })}
     </>

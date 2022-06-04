@@ -1,9 +1,11 @@
-$red: #b9002e57;
+$red: #dc143c;
 $black: #1d1d1d;
 $white: #ffffff;
 $gray: #555555;
 
-.home {
+.home,
+.list,
+.about {
   background: none;
   color: $gray;
   border: none;
@@ -15,38 +17,38 @@ $gray: #555555;
   align-self: center;
 }
 
-.home:hover {
-  color: $white;
+.home {
+  justify-self: flex-start;
 }
 
 .list {
-  background: none;
-  color: $gray;
-  border: none;
-  font-size: 1.5rem;
-  transition: 0.3s;
-  cursor: pointer;
-  grid-area: navigation;
   justify-self: center;
-  align-self: center;
-}
-
-.list:hover {
-  color: $white;
 }
 
 .about {
-  background: none;
-  color: $gray;
-  border: none;
-  font-size: 1.5rem;
-  transition: 0.3s;
-  cursor: pointer;
-  grid-area: navigation;
   justify-self: flex-end;
-  align-self: center;
 }
 
-.about:hover {
-  color: $white;
+@media (max-width: 650px) {
+  .home,
+  .list,
+  .about {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .home,
+  .list,
+  .about {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .home,
+  .list,
+  .about {
+    font-size: 1rem;
+  }
 }

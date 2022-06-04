@@ -33,7 +33,6 @@ body {
       grid-area: topContent;
       display: grid;
       grid-template: 'logo navigation .' / 4fr 1fr 4fr;
-      height: 15vh;
 
       .logo {
         grid-area: logo;
@@ -42,10 +41,12 @@ body {
         letter-spacing: 1px;
         font-weight: bold;
         cursor: default;
-        justify-self: flex-start;
         align-self: center;
-        margin-right: 0.5rem;
-        margin-bottom: 0.6rem;
+        justify-self: center;
+      }
+
+      .logo::before {
+        content: 'SwitchWord.';
       }
     }
 
@@ -61,9 +62,68 @@ body {
     .cardsBox {
       display: grid;
       grid-template:
-        'filter options delete' 1fr
-        'box box box' 5fr
+        'options options options' 1fr
+        'box box box' 4fr
         / 1fr 1fr 1fr;
     }
+  }
+}
+
+@media (max-width: 1200px) {
+  .mainBox .innerBox .topBox {
+    grid-template-columns: 3fr 1fr 3fr;
+  }
+
+  .mainBox {
+    grid-template-columns: 1fr 5fr 1fr;
+  }
+}
+
+@media (max-width: 1050px) {
+  .mainBox .innerBox .middleBox {
+    grid-template:
+      'word word word' 2fr
+      'arrow arrow arrow' 2fr
+      'answer answer answer' 2fr
+      'translation translation translation';
+  }
+}
+
+@media (max-width: 900px) {
+  .mainBox .innerBox .topBox {
+    grid-template: 'logo navigation .' / 4fr 2fr 4fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .mainBox .innerBox .topBox {
+    grid-template: 'logo navigation navigation' / 4fr 1fr 1fr;
+  }
+
+  .mainBox .innerBox .topBox .logo {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .mainBox {
+    height: 80vh;
+  }
+
+  .mainBox .innerBox .topBox {
+    grid-template:
+      '. logo .' 2fr
+      '. navigation .' 1fr;
+  }
+
+  .mainBox .innerBox .topBox .logo::before {
+    font-size: 1.3rem;
+    content: 'SW.';
+  }
+}
+
+@media (max-width: 300px) {
+  .mainBox .innerBox .topBox .logo::before {
+    font-size: 1rem;
   }
 }

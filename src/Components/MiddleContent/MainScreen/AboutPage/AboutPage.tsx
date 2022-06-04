@@ -1,9 +1,13 @@
- // @ts-ignore
 import styles from './AboutPage.module.scss'
+import { motion } from 'framer-motion';
 
 const AboutPage = () => {
     return (
-        <div className={styles.about}>
+        <motion.div 
+        transition={{duration: .5}} 
+        initial={{opacity: 0}} 
+        animate={{opacity: 1}} 
+        className={styles.about}>
             <h1 className={styles.headers}>
             About
             </h1>
@@ -33,13 +37,8 @@ const AboutPage = () => {
             <h3 className={styles.headers}>
             Third page
             </h3>
-            - it's "About" page, where you are now.
-            <br/>
-            <br/>
-            <p className={styles.ps}>
-            This is my first react project, just to practice. I've learned a lot of new stuff while making it and still going.
-            </p>
-        </div>
+            - it's "About" page, where you are now.    
+        </motion.div>
     )
 }
 

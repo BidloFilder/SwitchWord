@@ -1,19 +1,17 @@
 $white: #ffffff;
-$red: #b9002e57;
+$red: #dc143c;
 $black: #1d1d1d;
 $gray: #555555;
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400&display=swap');
 
 .about {
-  width: 70%;
-  height: 70vh;
-  overflow-y: scroll;
+  grid-area: middleContent;
   align-self: center;
-  justify-self: center;
+  height: 60vh;
+  overflow-y: scroll;
   color: $gray;
   font-size: 1.5rem;
-  text-align: justify;
-  line-height: 2.5rem;
+  line-height: 2rem;
   font-family: 'Lexend Deca', sans-serif;
   font-weight: 400;
   padding-right: 1.5rem;
@@ -22,7 +20,7 @@ $gray: #555555;
 
 .about::-webkit-scrollbar {
   background-color: $black;
-  width: 0.5rem;
+  width: 0.4rem;
 }
 
 .about::-webkit-scrollbar-thumb {
@@ -35,15 +33,46 @@ $gray: #555555;
   text-decoration: none;
 }
 
-.ps {
-  font-family: 'Lexend Deca', sans-serif;
-  font-size: .3em;
-  width: 40%;
-  line-height: 1.1rem;
-  letter-spacing: 0.5px;
-  justify-self: flex-end;
-}
-
 .headers {
   color: $white;
+}
+
+@media (max-width: 1050px) {
+  .about {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .about {
+    text-align: center;
+    padding: 0;
+  }
+
+  .about::-webkit-scrollbar {
+    background-color: $black;
+    width: 0.3rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .about {
+    font-size: 1.1rem;
+  }
+
+  .about::-webkit-scrollbar {
+    background-color: $black;
+    width: 0.2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .about {
+    font-size: 0.9rem;
+  }
+
+  .about::-webkit-scrollbar {
+    background-color: $black;
+    width: 0.1rem;
+  }
 }

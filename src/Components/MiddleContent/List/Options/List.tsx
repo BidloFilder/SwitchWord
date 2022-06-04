@@ -1,20 +1,46 @@
 import React, { useEffect, useState } from 'react';
-// @ts-ignore
-import Card from '../Cards/Card.tsx';
-// @ts-ignore
+import Card from '../Cards/Card';
 import styles from './List.module.scss';
-// @ts-ignore
-import Options from './Options.tsx';
+import Options from './Options';
+import { motion } from 'framer-motion';
 
 interface Props {
-  deleteWordsHandler: (event: any) => void;
-  addNewWordsHandler: (word: any, translation: any) => Array<any>;
+  deleteWordsHandler: (event: any) => Array<any>;
+  addNewWordsHandler: (word: any, translation: any) => Array<object>;
   deleteAll: () => Array<any>;
 }
 
+const listEmptyWarningAnimation = {
+  initial: {
+    opacity: 0,
+    y: 50,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      type: 'spring',
+    },
+  },
+};
+
+const cardWrapperAnimation = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1.5,
+      type: 'spring',
+    },
+  },
+};
+
 const List = (props: Props) => {
   const [showEmptyListWarning, setShowEmptyListWarning] = useState(false);
-  
+
   const [listCards, setListCards] = useState(() => {
     const localData = localStorage.getItem('words');
     return localData ? JSON.parse(localData) : [];
@@ -45,9 +71,9 @@ const List = (props: Props) => {
     setListCards(
       props.addNewWordsHandler(
         wordValue.trim().charAt(0).toUpperCase() +
-        wordValue.trim().slice(1).toLowerCase(),
+          wordValue.trim().slice(1).toLowerCase(),
         translateValue.trim().charAt(0).toUpperCase() +
-        translateValue.trim().slice(1).toLowerCase(),
+          translateValue.trim().slice(1).toLowerCase()
       )
     );
     event.target.word.value = '';
@@ -65,7 +91,7 @@ const List = (props: Props) => {
   const filterCards = (event: any) => {
     const search = event.target.value.toLowerCase();
     if (search !== '') {
-      let filteredValues = listCards.filter((item: object) => {
+      let filteredValues = listCards.filter((item: any) => {
         return Object.keys(item)[0].toLowerCase().includes(search);
       });
       setFilteredCards(filteredValues);
@@ -83,12 +109,24 @@ const List = (props: Props) => {
       />
 
       {showEmptyListWarning ? (
-        <span className={styles.listEmptyWarning}>List Is Empty</span>
+        <motion.span
+          variants={listEmptyWarningAnimation}
+          initial="initial"
+          animate="animate"
+          className={styles.listEmptyWarning}
+        >
+          List Is Empty
+        </motion.span>
       ) : null}
 
-      <div className={styles.cardWrapper}>
+      <motion.div
+        className={styles.cardWrapper}
+        variants={cardWrapperAnimation}
+        initial="initial"
+        animate="animate"
+      >
         <Card listValue={filteredCards} deleteWord={deleteWord} />
-      </div>
+      </motion.div>
     </>
   );
 };

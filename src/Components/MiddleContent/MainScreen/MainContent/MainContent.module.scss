@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+
+$red: #dc143c;
+$black: #1d1d1d;
+$white: #ffffff;
+$gray: #555555;
+
+.answerForm {
+  grid-area: answer;
+  justify-self: flex-end;
+  align-self: center;
+  display: grid;
+
+  .answer {
+    border: none;
+    justify-self: flex-end;
+    align-self: center;
+    font-size: 3.5rem;
+    color: $white;
+    background: none;
+    text-align: right;
+    width: 100%;
+  }
+
+  .answer:focus {
+    outline: none;
+  }
+
+  .answer::placeholder {
+    color: $gray;
+  }
+
+  .answer:hover::placeholder {
+    color: #ffffffa1;
+    transition: 0.3s;
+  }
+}
+
+.guessWord {
+  grid-area: word;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 3.5rem;
+  color: $white;
+  cursor: default;
+}
+
+.showTranslationBtn {
+  grid-area: translation;
+  background: none;
+  color: $gray;
+  border: none;
+  font-size: 1.5rem;
+  transition: 0.3s;
+  cursor: pointer;
+  justify-self: center;
+  align-self: flex-start;
+}
+
+.showTranslationBtn:hover {
+  color: $white;
+}
+
+.translation {
+  grid-area: arrow;
+  color: $white;
+  justify-self: center;
+  align-self: flex-end;
+  font-size: 1.5rem;
+  cursor: default;
+  font-weight: 200;
+}
+
+.translationEmpty {
+  color: $red;
+  grid-area: arrow;
+  justify-self: center;
+  align-self: flex-end;
+  font-size: 1.5rem;
+  cursor: default;
+}
+
+.listIsEmpty {
+  color: $red;
+  grid-area: word;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 3.5rem;
+  cursor: default;
+}
+
+.arrow {
+  display: grid;
+  grid-area: arrow;
+  height: 100%;
+  justify-self: center;
+  align-self: center;
+  font-size: 5rem;
+  color: $gray;
+}
+
+@media (max-width: 1050px) {
+  .guessWord,
+  .listIsEmpty {
+    justify-self: center;
+    align-self: flex-end;
+  }
+
+  .answerForm {
+    justify-self: center;
+    align-self: flex-start;
+  }
+
+  .answerForm .answer {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .arrow {
+    transform: rotate(-90deg);
+  }
+
+  .translation,
+  .translationEmpty {
+    grid-area: word;
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 650px) {
+  .listIsEmpty,
+  .guessWord,
+  .answerForm .answer {
+    font-size: 2.7rem;
+  }
+
+  .arrow {
+    font-size: 4.5rem;
+  }
+
+  .translationEmpty,
+  .translation {
+    font-size: 1.5rem;
+    align-self: center;
+  }
+
+  .showTranslationBtn {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .listIsEmpty,
+  .guessWord,
+  .answerForm .answer {
+    font-size: 2.5rem;
+  }
+
+  .arrow {
+    font-size: 4rem;
+  }
+
+  .translationEmpty,
+  .translation {
+    font-size: 1.2rem;
+    align-self: center;
+  }
+
+  .showTranslationBtn {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .listIsEmpty,
+  .guessWord,
+  .answerForm .answer {
+    font-size: 2.3rem;
+  }
+
+  .arrow {
+    font-size: 3rem;
+  }
+
+  .translation {
+    font-size: 1.1rem;
+  }
+
+  .showTranslationBtn {
+    font-size: 1.2rem;
+  }
+}
