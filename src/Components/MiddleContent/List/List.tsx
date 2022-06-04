@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Card from '../Cards/Card';
+import Word from './Words/Word';
 import styles from './List.module.scss';
-import Options from './Options';
+import OptionsInterface from './Options/Options';
 import { motion } from 'framer-motion';
 
 interface Props {
@@ -102,7 +102,7 @@ const List = (props: Props) => {
 
   return (
     <>
-      <Options
+      <OptionsInterface
         filterCards={filterCards}
         deleteAll={deleteAll}
         passInputsValue={passInputsValue}
@@ -120,12 +120,12 @@ const List = (props: Props) => {
       ) : null}
 
       <motion.div
-        className={styles.cardWrapper}
+        className={styles.wordsWrapper}
         variants={cardWrapperAnimation}
         initial="initial"
         animate="animate"
       >
-        <Card listValue={filteredCards} deleteWord={deleteWord} />
+        <Word listValue={filteredCards} deleteWord={deleteWord} />
       </motion.div>
     </>
   );

@@ -1,4 +1,4 @@
-import styles from './Card.module.scss';
+import styles from './Word.module.scss';
 import { FiDelete } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 
@@ -7,7 +7,7 @@ interface Props {
   deleteWord: (event: any) => void;
 }
 
-const Card = (props: Props) => {
+const Word = (props: Props) => {
   return (
     <>
       {props.listValue.map((value) => {
@@ -44,4 +44,4 @@ const Card = (props: Props) => {
   );
 };
 
-export default Card;
+export default Word;

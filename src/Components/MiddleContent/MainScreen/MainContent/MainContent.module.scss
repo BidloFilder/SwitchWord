@@ -47,7 +47,7 @@ $gray: #555555;
 }
 
 .showTranslationBtn {
-  grid-area: translation;
+  grid-area: trnslBtn;
   background: none;
   color: $gray;
   border: none;
@@ -55,7 +55,7 @@ $gray: #555555;
   transition: 0.3s;
   cursor: pointer;
   justify-self: center;
-  align-self: flex-start;
+  align-self: center;
 }
 
 .showTranslationBtn:hover {
@@ -63,7 +63,7 @@ $gray: #555555;
 }
 
 .translation {
-  grid-area: arrow;
+  grid-area: trnsl;
   color: $white;
   justify-self: center;
   align-self: flex-end;

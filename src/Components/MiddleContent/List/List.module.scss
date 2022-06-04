@@ -11,51 +11,52 @@ $gray: #555555;
   align-self: center;
 }
 
-.cardWrapper {
+.wordsWrapper {
   grid-area: box;
   padding-top: 1rem;
   grid-auto-rows: 60px;
   gap: 15px;
+  height: 60vh;
   display: grid;
   overflow-y: auto;
 }
 
-.cardWrapper::-webkit-scrollbar {
+.wordsWrapper::-webkit-scrollbar {
   background-color: $black;
   width: 0.4rem;
 }
 
-.cardWrapper::-webkit-scrollbar-thumb {
+.wordsWrapper::-webkit-scrollbar-thumb {
   background-color: $gray;
   border-radius: 10px;
 }
 
 @media (max-width: 900px) {
-  .cardWrapper {
+  .wordsWrapper {
     height: 60vh;
   }
 
-  .cardWrapper::-webkit-scrollbar {
+  .wordsWrapper::-webkit-scrollbar {
     width: 0.3rem;
   }
 }
 
 @media (max-width: 650px) {
-  .cardWrapper {
+  .wordsWrapper {
     grid-auto-rows: 50px;
   }
 
-  .cardWrapper::-webkit-scrollbar {
+  .wordsWrapper::-webkit-scrollbar {
     width: 0.2rem;
   }
 }
 
 @media (max-width: 470px) {
-  .cardWrapper {
+  .wordsWrapper {
     grid-auto-rows: 40px;
   }
 
-  .cardWrapper::-webkit-scrollbar {
+  .wordsWrapper::-webkit-scrollbar {
     width: 0.1rem;
   }
 
