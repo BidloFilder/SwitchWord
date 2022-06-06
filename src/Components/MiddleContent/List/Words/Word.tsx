@@ -3,14 +3,14 @@ import { FiDelete } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 
 interface Props {
-  listValue: Array<object>;
+  listOfWords: Array<object>;
   deleteWord: (event: any) => void;
 }
 
 const Word = (props: Props) => {
   return (
     <>
-      {props.listValue.map((value) => {
+      {props.listOfWords.map((value) => {
         return (
           <motion.div
             //@ts-ignore
@@ -20,9 +20,9 @@ const Word = (props: Props) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className={styles.card}
+            className={styles['item']}
           >
-            <span className={styles.word}>
+            <span className={styles['word']}>
               {Object.keys(value)[0].charAt(0).toUpperCase() +
                 Object.keys(value)[0].slice(1).toLowerCase()}
             </span>
@@ -30,10 +30,10 @@ const Word = (props: Props) => {
             <FiDelete
               type="button"
               onClick={props.deleteWord}
-              className={styles.deleteCardBtn}
+              className={styles['delete-word-button']}
             />
 
-            <span className={styles.translation}>
+            <span className={styles['translation']}>
               {Object.values(value)[0].charAt(0).toUpperCase() +
                 Object.values(value)[0].slice(1).toLowerCase()}
             </span>

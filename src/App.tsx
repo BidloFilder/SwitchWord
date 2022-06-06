@@ -57,21 +57,18 @@ const middleBoxAnimation = {
 };
 
 function App() {
-  const addNewWordsHandler = (word: string, translation: string) => {
+  const addNewWords = (word: string, translation: string) => {
     let object = { [word]: translation, id: uuidv4() };
     WORDS = [object, ...WORDS];
     return WORDS;
   };
 
-  const deleteWordsHandler = (event: any) => {
+  const deleteWords = (event: any) => {
     let id = event.target.parentNode.id;
 
-    WORDS = WORDS.filter(
-      (item: any) => item.id !== id
-    );
+    WORDS = WORDS.filter((item: any) => item.id !== id);
     return WORDS;
   };
-
 
   const deleteAll = () => {
     WORDS = [];
@@ -85,33 +82,33 @@ function App() {
   };
 
   return (
-    <div className={styles.mainBox}>
-      <div className={styles.innerBox}>
+    <div className={styles['main-box']}>
+      <div className={styles['inner-box']}>
         <motion.div
           variants={topBoxAnimation}
           initial="initial"
           animate="animate"
-          className={styles.topBox}
+          className={styles['top-box']}
         >
           <motion.span
-            className={styles.logo}
+            className={styles['logo']}
             variants={logoAnimation}
             initial="initial"
             animate="animate"
           ></motion.span>
           <Navigation
             icon={<RiHome2Line />}
-            style={style.home}
+            style={style['home']}
             navigateTo={'/'}
           />
           <Navigation
             icon={<AiOutlineUnorderedList />}
-            style={style.list}
+            style={style['list']}
             navigateTo={'list'}
           />
           <Navigation
             icon={<AiOutlineInfoCircle />}
-            style={style.about}
+            style={style['about']}
             navigateTo={'about'}
           />
         </motion.div>
@@ -120,7 +117,7 @@ function App() {
             path="/"
             element={
               <motion.div
-                className={styles.middleBox}
+                className={styles['middle-box']}
                 variants={middleBoxAnimation}
                 initial="initial"
                 animate="animate"
@@ -137,10 +134,10 @@ function App() {
           <Route
             path="list"
             element={
-              <div className={styles.cardsBox}>
+              <div className={styles['words-box']}>
                 <List
-                  deleteWordsHandler={deleteWordsHandler}
-                  addNewWordsHandler={addNewWordsHandler}
+                  deleteWords={deleteWords}
+                  addNewWords={addNewWords}
                   deleteAll={deleteAll}
                 />
               </div>

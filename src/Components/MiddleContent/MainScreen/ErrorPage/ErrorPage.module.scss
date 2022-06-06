@@ -1,6 +1,6 @@
 $white: #ffffff;
 
-.errorPage {
+.error-page {
   font-size: 5rem;
   justify-self: center;
   align-self: center;
@@ -8,19 +8,19 @@ $white: #ffffff;
 }
 
 @media (max-width: 900px) {
-  .errorPage {
+  .error-page {
     font-size: 4rem;
   }
 }
 
 @media (max-width: 650px) {
-  .errorPage {
+  .error-page {
     font-size: 3rem;
   }
 }
 
 @media (max-width: 470px) {
-  .errorPage {
+  .error-page {
     font-size: 2.5rem;
     text-align: center;
   }

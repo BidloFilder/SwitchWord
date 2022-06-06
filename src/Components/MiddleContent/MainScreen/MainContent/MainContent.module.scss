@@ -5,7 +5,7 @@ $black: #1d1d1d;
 $white: #ffffff;
 $gray: #555555;
 
-.answerForm {
+.answer-form {
   grid-area: answer;
   justify-self: flex-end;
   align-self: center;
@@ -36,7 +36,7 @@ $gray: #555555;
   }
 }
 
-.guessWord {
+.guess-word {
   grid-area: word;
   display: flex;
   justify-content: flex-start;
@@ -46,7 +46,7 @@ $gray: #555555;
   cursor: default;
 }
 
-.showTranslationBtn {
+.show-translation-button {
   grid-area: trnslBtn;
   background: none;
   color: $gray;
@@ -58,7 +58,7 @@ $gray: #555555;
   align-self: center;
 }
 
-.showTranslationBtn:hover {
+.show-translation-button:hover {
   color: $white;
 }
 
@@ -72,7 +72,7 @@ $gray: #555555;
   font-weight: 200;
 }
 
-.translationEmpty {
+.translation-empty {
   color: $red;
   grid-area: arrow;
   justify-self: center;
@@ -81,7 +81,7 @@ $gray: #555555;
   cursor: default;
 }
 
-.listIsEmpty {
+.list-is-empty {
   color: $red;
   grid-area: word;
   display: flex;
@@ -102,18 +102,18 @@ $gray: #555555;
 }
 
 @media (max-width: 1050px) {
-  .guessWord,
-  .listIsEmpty {
+  .guess-word,
+  .list-is-empty {
     justify-self: center;
     align-self: flex-end;
   }
 
-  .answerForm {
+  .answer-form {
     justify-self: center;
     align-self: flex-start;
   }
 
-  .answerForm .answer {
+  .answer-form .answer {
     justify-self: center;
     text-align: center;
   }
@@ -123,16 +123,16 @@ $gray: #555555;
   }
 
   .translation,
-  .translationEmpty {
+  .translation-empty {
     grid-area: word;
     align-self: flex-start;
   }
 }
 
 @media (max-width: 650px) {
-  .listIsEmpty,
-  .guessWord,
-  .answerForm .answer {
+  .list-is-empty,
+  .guess-word,
+  .answer-form .answer {
     font-size: 2.7rem;
   }
 
@@ -140,21 +140,21 @@ $gray: #555555;
     font-size: 4.5rem;
   }
 
-  .translationEmpty,
+  .translation-empty,
   .translation {
     font-size: 1.5rem;
     align-self: center;
   }
 
-  .showTranslationBtn {
+  .show-translation-button {
     font-size: 1.5rem;
   }
 }
 
 @media (max-width: 450px) {
-  .listIsEmpty,
-  .guessWord,
-  .answerForm .answer {
+  .list-is-empty,
+  .guess-word,
+  .answer-form .answer {
     font-size: 2.5rem;
   }
 
@@ -162,21 +162,21 @@ $gray: #555555;
     font-size: 4rem;
   }
 
-  .translationEmpty,
+  .translation-empty,
   .translation {
     font-size: 1.2rem;
     align-self: center;
   }
 
-  .showTranslationBtn {
+  .show-translation-button {
     font-size: 1.3rem;
   }
 }
 
 @media (max-width: 350px) {
-  .listIsEmpty,
-  .guessWord,
-  .answerForm .answer {
+  .list-is-empty,
+  .guess-ord,
+  .answer-form .answer {
     font-size: 2.3rem;
   }
 
@@ -188,7 +188,7 @@ $gray: #555555;
     font-size: 1.1rem;
   }
 
-  .showTranslationBtn {
+  .show-translation-button {
     font-size: 1.2rem;
   }
 }

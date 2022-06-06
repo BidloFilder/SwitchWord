@@ -8,7 +8,7 @@ $gray: #555555;
   grid-area: options;
   grid-template: 'search form deleteAll' / 1fr 5fr 1fr;
 
-  .deleteAll {
+  .delete-all {
     border: none;
     background: none;
     justify-self: flex-end;
@@ -20,7 +20,7 @@ $gray: #555555;
     grid-area: deleteAll;
   }
 
-  .deleteAll:hover {
+  .delete-all:hover {
     color: $red;
   }
 
@@ -30,7 +30,7 @@ $gray: #555555;
     background: none;
     outline: none;
     font-size: 1.4rem;
-    width: 100%;
+    width: 70%;
     height: 5vh;
     align-self: center;
     color: $white;
@@ -47,7 +47,7 @@ $gray: #555555;
     transition: 0.3s;
   }
 
-  .optionsForm {
+  .options-form {
     display: grid;
     grid-template: 'word button translation';
     background: none;
@@ -75,7 +75,7 @@ $gray: #555555;
       color: $gray;
     }
 
-    .addBtn {
+    .add-button {
       color: $gray;
       border: none;
       background: none;
@@ -86,14 +86,14 @@ $gray: #555555;
       font-size: 2rem;
     }
 
-    .addBtn:hover {
+    .add-button:hover {
       color: $white;
     }
 
-    .wordWarning,
-    .translationWarning,
-    .wordWarning::placeholder,
-    .translationWarning::placeholder {
+    .word-warning,
+    .translation-warning,
+    .word-warning::placeholder,
+    .translation-warning::placeholder {
       transition: 0.1s;
       color: $red;
     }
@@ -105,15 +105,15 @@ $gray: #555555;
     font-size: 1.3rem;
   }
 
-  .options .deleteAll {
+  .options .delete-all {
     font-size: 1.4rem;
   }
 
-  .options .optionsForm input {
+  .options .options-form input {
     font-size: 1.3rem;
   }
 
-  .options .optionsForm .addBtn {
+  .options .options-form .add-button {
     font-size: 1.7rem;
   }
 }
@@ -123,15 +123,15 @@ $gray: #555555;
     font-size: 0.9rem;
   }
 
-  .options .deleteAll {
+  .options .delete-all {
     font-size: 1.2rem;
   }
 
-  .options .optionsForm input {
+  .options .options-form input {
     font-size: 1.1rem;
   }
 
-  .options .optionsForm .addBtn {
+  .options .options-form .add-button {
     font-size: 1.5rem;
   }
 }
@@ -141,15 +141,15 @@ $gray: #555555;
     font-size: 0.9rem;
   }
 
-  .options .deleteAll {
+  .options .delete-all {
     font-size: 1.1rem;
   }
 
-  .options .optionsForm input {
+  .options .options-form input {
     font-size: 0.9rem;
   }
 
-  .options .optionsForm .addBtn {
+  .options .options-form .add-button {
     font-size: 1.4rem;
   }
 
@@ -164,15 +164,15 @@ $gray: #555555;
     font-size: 0.7rem;
   }
 
-  .options .deleteAll {
+  .options .delete-all {
     font-size: 0.9rem;
   }
 
-  .options .optionsForm input {
+  .options .options-form input {
     font-size: 0.8rem;
   }
 
-  .options .optionsForm .addBtn {
+  .options .options-form .add-button {
     font-size: 1.3rem;
   }
 }

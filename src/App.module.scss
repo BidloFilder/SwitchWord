@@ -14,12 +14,12 @@ body {
   background-color: $black;
 }
 
-.mainBox {
+.main-box {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
 
-  .innerBox {
+  .inner-box {
     height: 100vh;
     grid-column: 2/2;
     display: grid;
@@ -28,7 +28,7 @@ body {
       'middleContent' 5fr
       'footerContent' 1fr;
 
-    .topBox {
+    .top-box {
       background-color: $black;
       grid-area: topContent;
       display: grid;
@@ -50,7 +50,7 @@ body {
       }
     }
 
-    .middleBox {
+    .middle-box {
       grid-area: middleContent;
       display: grid;
       grid-template:
@@ -60,7 +60,7 @@ body {
         / 2fr 1fr 2fr;
     }
 
-    .cardsBox {
+    .words-box {
       display: grid;
       grid-template:
         'options options options' 1fr
@@ -71,60 +71,60 @@ body {
 }
 
 @media (max-width: 1200px) {
-  .mainBox .innerBox .topBox {
+  .main-box .inner-box .top-box {
     grid-template-columns: 3fr 1fr 3fr;
   }
 
-  .mainBox {
+  .main-box {
     grid-template-columns: 1fr 5fr 1fr;
   }
 }
 
 @media (max-width: 1050px) {
-  .mainBox .innerBox .middleBox {
+  .main-box .inner-box .middle-box {
     grid-template:
       'word word word' 2fr
       'arrow arrow arrow' 2fr
       'answer answer answer' 2fr
-      'translation translation translation';
+      'trnslBtn trnslBtn trnslBtn';
   }
 }
 
 @media (max-width: 900px) {
-  .mainBox .innerBox .topBox {
+  .main-box .inner-box .top-box {
     grid-template: 'logo navigation .' / 4fr 2fr 4fr;
   }
 }
 
 @media (max-width: 650px) {
-  .mainBox .innerBox .topBox {
+  .main-box .inner-box .top-box {
     grid-template: 'logo navigation navigation' / 4fr 1fr 1fr;
   }
 
-  .mainBox .innerBox .topBox .logo {
+  .main-box .inner-box .top-box .logo {
     font-size: 1.7rem;
   }
 }
 
 @media (max-width: 450px) {
-  .mainBox {
+  .main-box {
     height: 80vh;
   }
 
-  .mainBox .innerBox .topBox {
+  .main-box .inner-box .top-box {
     grid-template:
       '. logo .' 2fr
       '. navigation .' 1fr;
   }
 
-  .mainBox .innerBox .topBox .logo::before {
+  .main-box .inner-box .top-box .logo::before {
     font-size: 1.3rem;
     content: 'SW.';
   }
 }
 
 @media (max-width: 300px) {
-  .mainBox .innerBox .topBox .logo::before {
+  .main-box .inner-box .top-box .logo::before {
     font-size: 1rem;
   }
 }

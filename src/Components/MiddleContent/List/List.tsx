@@ -5,8 +5,8 @@ import OptionsInterface from './Options/Options';
 import { motion } from 'framer-motion';
 
 interface Props {
-  deleteWordsHandler: (event: any) => Array<any>;
-  addNewWordsHandler: (word: any, translation: any) => Array<object>;
+  deleteWords: (event: any) => Array<any>;
+  addNewWords: (word: any, translation: any) => Array<object>;
   deleteAll: () => Array<any>;
 }
 
@@ -41,26 +41,26 @@ const cardWrapperAnimation = {
 const List = (props: Props) => {
   const [showEmptyListWarning, setShowEmptyListWarning] = useState(false);
 
-  const [listCards, setListCards] = useState(() => {
+  const [listWords, setListWords] = useState(() => {
     const localData = localStorage.getItem('words');
     return localData ? JSON.parse(localData) : [];
   });
 
-  const [filteredCards, setFilteredCards] = useState(listCards);
+  const [filteredWords, setFilteredWords] = useState(listWords);
 
   useEffect(() => {
-    localStorage.setItem('words', JSON.stringify(listCards));
-  }, [listCards]);
+    localStorage.setItem('words', JSON.stringify(listWords));
+  }, [listWords]);
 
   useEffect(() => {
-    if (listCards.length === 0) {
+    if (listWords.length === 0) {
       setShowEmptyListWarning(true);
     } else setShowEmptyListWarning(false);
-  }, [listCards]);
+  }, [listWords]);
 
   useEffect(() => {
-    setFilteredCards(listCards);
-  }, [listCards]);
+    setFilteredWords(listWords);
+  }, [listWords]);
 
   const passInputsValue = (event: any) => {
     event.preventDefault();
@@ -68,8 +68,8 @@ const List = (props: Props) => {
     const wordValue = event.target.word.value.trim();
     const translateValue = event.target.translation.value.trim();
 
-    setListCards(
-      props.addNewWordsHandler(
+    setListWords(
+      props.addNewWords(
         wordValue.trim().charAt(0).toUpperCase() +
           wordValue.trim().slice(1).toLowerCase(),
         translateValue.trim().charAt(0).toUpperCase() +
@@ -81,29 +81,29 @@ const List = (props: Props) => {
   };
 
   const deleteWord = (event: any) => {
-    setListCards(props.deleteWordsHandler(event));
+    setListWords(props.deleteWords(event));
   };
 
   const deleteAll = () => {
-    setListCards(props.deleteAll());
+    setListWords(props.deleteAll());
   };
 
-  const filterCards = (event: any) => {
+  const filterWords = (event: any) => {
     const search = event.target.value.toLowerCase();
     if (search !== '') {
-      let filteredValues = listCards.filter((item: any) => {
+      let filteredValues = listWords.filter((item: any) => {
         return Object.keys(item)[0].toLowerCase().includes(search);
       });
-      setFilteredCards(filteredValues);
+      setFilteredWords(filteredValues);
     } else {
-      setFilteredCards(listCards);
+      setFilteredWords(listWords);
     }
   };
 
   return (
     <>
       <OptionsInterface
-        filterCards={filterCards}
+        filterCards={filterWords}
         deleteAll={deleteAll}
         passInputsValue={passInputsValue}
       />
@@ -113,19 +113,19 @@ const List = (props: Props) => {
           variants={listEmptyWarningAnimation}
           initial="initial"
           animate="animate"
-          className={styles.listEmptyWarning}
+          className={styles['list-empty-warning']}
         >
           List Is Empty
         </motion.span>
       ) : null}
 
       <motion.div
-        className={styles.wordsWrapper}
+        className={styles['words-wrapper']}
         variants={cardWrapperAnimation}
         initial="initial"
         animate="animate"
       >
-        <Word listValue={filteredCards} deleteWord={deleteWord} />
+        <Word listOfWords={filteredWords} deleteWord={deleteWord} />
       </motion.div>
     </>
   );

@@ -3,7 +3,7 @@ $black: #1d1d1d;
 $white: #ffffff;
 $gray: #555555;
 
-.listEmptyWarning {
+.list-empty-warning {
   font-size: 4rem;
   color: $gray;
   grid-area: box;
@@ -11,62 +11,62 @@ $gray: #555555;
   align-self: center;
 }
 
-.wordsWrapper {
+.words-wrapper {
   grid-area: box;
   padding-top: 1rem;
-  grid-auto-rows: 60px;
+  grid-auto-rows: 50px;
   gap: 15px;
   height: 60vh;
   display: grid;
   overflow-y: auto;
 }
 
-.wordsWrapper::-webkit-scrollbar {
+.words-wrapper::-webkit-scrollbar {
   background-color: $black;
   width: 0.4rem;
 }
 
-.wordsWrapper::-webkit-scrollbar-thumb {
+.words-wrapper::-webkit-scrollbar-thumb {
   background-color: $gray;
   border-radius: 10px;
 }
 
 @media (max-width: 900px) {
-  .wordsWrapper {
+  .words-wrapper {
     height: 60vh;
   }
 
-  .wordsWrapper::-webkit-scrollbar {
+  .words-wrapper::-webkit-scrollbar {
     width: 0.3rem;
   }
 }
 
 @media (max-width: 650px) {
-  .wordsWrapper {
-    grid-auto-rows: 50px;
+  .words-wrapper {
+    grid-auto-rows: 40px;
   }
 
-  .wordsWrapper::-webkit-scrollbar {
+  .words-wrapper::-webkit-scrollbar {
     width: 0.2rem;
   }
 }
 
 @media (max-width: 470px) {
-  .wordsWrapper {
-    grid-auto-rows: 40px;
+  .words-wrapper {
+    grid-auto-rows: 35px;
   }
 
-  .wordsWrapper::-webkit-scrollbar {
+  .words-wrapper::-webkit-scrollbar {
     width: 0.1rem;
   }
 
-  .listEmptyWarning {
+  .list-empty-warning {
     font-size: 3rem;
   }
 }
 
 @media (max-width: 360px) {
-  .listEmptyWarning {
+  .list-empty-warning {
     font-size: 2rem;
   }
 }

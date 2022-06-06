@@ -51,7 +51,7 @@ const OptionsInterface = (props: Props) => {
 
   return (
     <motion.div
-      className={styles.options}
+      className={styles['options']}
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, type: 'spring' }}
@@ -59,33 +59,33 @@ const OptionsInterface = (props: Props) => {
       <input
         placeholder="Search"
         onChange={props.filterCards}
-        className={styles.filter}
+        className={styles['filter']}
       />
       <form
         onSubmit={passAndCheck}
         autoComplete="off"
-        className={styles.optionsForm}
+        className={styles['options-form']}
       >
         <input
           id="word"
           placeholder="Word"
-          className={wordWarning ? styles.wordWarning : null}
+          className={wordWarning ? styles['word-warning'] : null}
           onChange={wordIsValid}
         />
 
-        <button className={styles.addBtn} type="submit">
+        <button className={styles['add-button']} type="submit">
           <RiAddFill />
         </button>
 
         <input
           id="translation"
           placeholder="Translation"
-          className={translationWarning ? styles.translationWarning : null}
+          className={translationWarning ? styles['translation-warning'] : null}
           onChange={translationIsValid}
         />
       </form>
 
-      <button onClick={props.deleteAll} className={styles.deleteAll}>
+      <button onClick={props.deleteAll} className={styles['delete-all']}>
         <MdOutlineDeleteSweep />
       </button>
     </motion.div>

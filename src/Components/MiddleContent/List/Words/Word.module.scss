@@ -4,17 +4,17 @@ $red: #dc143c;
 $black: #1d1d1d;
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap');
 
-.card {
+.item {
   display: grid;
   position: relative;
   font-weight: lighter;
   font-size: 1.8rem;
-  border-bottom: 1px solid #000000;
-  border-radius: 5px;
   cursor: default;
+  border-radius: 5px;
+  box-shadow: 0 4px 2px -3px #000000;
   grid-template: 'word translation delete' / 1fr 1fr 1fr;
 
-  .deleteCardBtn {
+  .delete-word-button {
     display: flex;
     font-size: 1.5rem;
     border: none;
@@ -27,7 +27,7 @@ $black: #1d1d1d;
     grid-area: delete;
   }
 
-  .deleteCardBtn:hover {
+  .delete-word-button:hover {
     color: $red;
   }
 
@@ -49,31 +49,31 @@ $black: #1d1d1d;
 }
 
 @media (max-width: 650px) {
-  .card {
+  .item {
     font-size: 1.5rem;
   }
 
-  .card .deleteCardBtn {
+  .item .delete-word-button {
     font-size: 1.2rem;
   }
 }
 
 @media (max-width: 450px) {
-  .card {
+  .item {
     font-size: 1.2rem;
   }
 
-  .card .deleteCardBtn {
+  .item .delete-word-button {
     font-size: 1rem;
   }
 }
 
 @media (max-width: 300px) {
-  .card {
+  .item {
     font-size: 1rem;
   }
 
-  .card .deleteCardBtn {
+  .item .delete-word-button {
     font-size: 0.9rem;
   }
 }

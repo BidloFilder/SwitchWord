@@ -65,11 +65,24 @@ const wordAnimation = {
   },
 };
 
+const translationAnimation = {
+  show: {
+    opacity: 1,
+    transition: {
+      duration: .3,
+    },
+  },
+initial: {
+  opacity: 0
+}
+};
+
 const AnswerAndWord = (props: Props) => {
   const [translation, setTranslation] = useState('');
-  const [checkAnswer, setCheckAnswer] = useState('');
+  const [arrowCheckAnimation, setArrowCheckAnimation] = useState('');
   const [listEmptyCheck, setlistEmptyCheck] = useState(true);
   const [translationListEmpty, setTranslationListEmpty] = useState(true);
+  const [translationShowAnimation, setTranslationShowAnimation] = useState('initial')
 
   //Get random object from "WORDS" array
   const getRandomObjFromArr = () => {
@@ -96,8 +109,10 @@ const AnswerAndWord = (props: Props) => {
     if (word[0][0] === 'List is Empty') {
       setTranslation('List is Empty');
     } else if (translation === '') {
+      setTranslationShowAnimation('show')
       setTranslation(answer);
     } else if (translation !== '') {
+      setTranslationShowAnimation('initial')
       setTranslation('');
     }
   };
@@ -109,16 +124,16 @@ const AnswerAndWord = (props: Props) => {
 
     if (answer === translation) {
       setWord(convertRandomObjToArr());
-      setCheckAnswer('trueAnswer');
+      setArrowCheckAnimation('trueAnswer');
       setTimeout(() => {
-        setCheckAnswer('initial');
+        setArrowCheckAnimation('initial');
       }, 1000);
       setTranslation('');
     }
     if (answer !== translation) {
-      setCheckAnswer('falseAnswer');
+      setArrowCheckAnimation('falseAnswer');
       setTimeout(() => {
-        setCheckAnswer('initial');
+        setArrowCheckAnimation('initial');
       }, 1000);
     }
     event.target.answer.value = '';
@@ -127,7 +142,7 @@ const AnswerAndWord = (props: Props) => {
   useEffect(() => {
     if (word[0][0] === 'List is Empty') {
       setlistEmptyCheck(false);
-      setCheckAnswer('listIsEmpty');
+      setArrowCheckAnimation('listIsEmpty');
       setTranslationListEmpty(false);
     } else {
       setlistEmptyCheck(true);
@@ -141,11 +156,11 @@ const AnswerAndWord = (props: Props) => {
         initial="initial"
         animate="animate"
         onSubmit={checkAnswerHandler}
-        className={styles.answerForm}
+        className={styles['answer-form']}
       >
         <motion.input
           id="answer"
-          className={styles.answer}
+          className={styles['answer']}
           autoComplete="off"
           placeholder="Answer"
         />
@@ -153,8 +168,8 @@ const AnswerAndWord = (props: Props) => {
 
       <motion.span
         variants={arrowAnimation}
-        animate={checkAnswer}
-        className={styles.arrow}
+        animate={arrowCheckAnimation}
+        className={styles['arrow']}
       >
         <BiChevronsRight style={{ alignSelf: 'center' }} />
       </motion.span>
@@ -163,23 +178,29 @@ const AnswerAndWord = (props: Props) => {
         variants={wordAnimation}
         initial="initial"
         animate="animate"
-        className={listEmptyCheck ? styles.guessWord : styles.listIsEmpty}
+        className={
+          listEmptyCheck ? styles['guess-word'] : styles['list-is-empty']
+        }
       >
         {word[0][0]}
       </motion.span>
 
-      <span
+      <motion.span
+        variants={translationAnimation}
+        animate={translationShowAnimation}
         className={
-          translationListEmpty ? styles.translation : styles.translationEmpty
+          translationListEmpty
+            ? styles['translation']
+            : styles['translation-empty']
         }
       >
         {translation}
-      </span>
+      </motion.span>
 
       <motion.button
         whileHover={{ scale: 1.1, color: '#ffffff' }}
         transition={{ duration: 0.01 }}
-        className={styles.showTranslationBtn}
+        className={styles['show-translation-button']}
         type="button"
         onClick={showTranslation}
       >
