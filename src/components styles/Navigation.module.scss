@@ -1,0 +1,66 @@
+@import '../assets/Variables.scss';
+
+.home,
+.list,
+.about {
+  background: none;
+  color: $gray;
+  border: none;
+  font-size: 1.5rem;
+  transition: 0.3s;
+  cursor: pointer;
+  grid-area: navigation;
+  align-self: center;
+}
+
+.home {
+  justify-self: flex-start;
+}
+
+.list {
+  justify-self: center;
+}
+
+.about {
+  justify-self: flex-end;
+}
+
+@media (max-width: 1050px) {
+  .home,
+  .list,
+  .about {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .home,
+  .list,
+  .about {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .home,
+  .list,
+  .about {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .home,
+  .list,
+  .about {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .home,
+  .list,
+  .about {
+    font-size: 0.9rem;
+  }
+}

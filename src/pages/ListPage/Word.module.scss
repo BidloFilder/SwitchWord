@@ -1,0 +1,95 @@
+@import '../../assets/Variables.scss';
+
+.item {
+  display: grid;
+  position: relative;
+  font-size: 1.5rem;
+  cursor: default;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px -3px #0e0e0e;
+  grid-template: 'word translation delete' / 1fr 1fr 1fr;
+
+  .delete-word-button {
+    display: flex;
+    font-size: 1.2rem;
+    border: none;
+    background: none;
+    transition: 0.3s;
+    cursor: pointer;
+    color: $gray;
+    align-self: center;
+    justify-self: center;
+    grid-area: delete;
+  }
+
+  .delete-word-button:hover {
+    color: $red;
+  }
+
+  .word {
+    color: $white;
+    justify-self: center;
+    align-self: center;
+    grid-area: word;
+    user-select: none;
+  }
+
+  .translation {
+    font-weight: 100;
+    color: $white;
+    justify-self: center;
+    align-self: center;
+    grid-area: translation;
+    user-select: none;
+  }
+}
+
+@media (max-width: 1050px) {
+  .item {
+    font-size: 1.4rem;
+  }
+
+  .item .delete-word-button {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .item {
+    font-size: 1.3rem;
+  }
+
+  .item .delete-word-button {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .item {
+    font-size: 1.2rem;
+  }
+
+  .item .delete-word-button {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .item {
+    font-size: 1.1rem;
+  }
+
+  .item .delete-word-button {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .item {
+    font-size: 1rem;
+  }
+
+  .item .delete-word-button {
+    font-size: 0.7rem;
+  }
+}

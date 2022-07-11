@@ -1,0 +1,108 @@
+@import '../assets/Variables.scss';
+
+.add-form {
+  display: grid;
+  grid-template: 'word button translation' / 5fr 1fr 5fr;
+  background: none;
+  grid-area: addWord;
+  justify-self: center;
+  align-self: center;
+  height: 100%;
+
+  input {
+    justify-self: center;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    width: 100%;
+    background: none;
+    color: $white;
+    text-align: center;
+    transition: 0.3s;
+  }
+
+  input:hover::placeholder {
+    color: transparent;
+    transition: 0.3s;
+  }
+
+  input::placeholder {
+    color: $gray;
+  }
+
+  .add-button {
+    display: grid;
+    color: $gray;
+    border: none;
+    background: none;
+    transition: 0.3s;
+    cursor: pointer;
+    justify-self: center;
+    align-self: center;
+    font-size: 1.7rem;
+    grid-area: button;
+    height: 100%;
+  }
+
+  .add-button:hover {
+    color: $white;
+  }
+
+  .word-warning,
+  .translation-warning,
+  .word-warning::placeholder,
+  .translation-warning::placeholder {
+    transition: 0.1s;
+    color: $red;
+  }
+}
+
+@media (max-width: 1050px) {
+  .add-form input {
+    font-size: 1rem;
+  }
+
+  .add-form .add-button {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .add-form input {
+    font-size: 0.9rem;
+  }
+
+  .add-form .add-button {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .add-form input {
+    font-size: 0.8rem;
+  }
+
+  .add-form .add-button {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .add-form input {
+    font-size: 0.7rem;
+  }
+
+  .add-form .add-button {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .options .add-form input {
+    font-size: 0.5rem;
+  }
+
+  .options .add-form .add-button {
+    font-size: 1rem;
+  }
+}

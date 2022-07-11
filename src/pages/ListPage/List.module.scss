@@ -1,0 +1,86 @@
+@import '../../assets/Variables.scss';
+
+.options {
+  display: grid;
+  grid-area: options;
+  grid-template:
+    'addWord search deleteAll'
+    / 1fr 1fr 1fr;
+}
+
+.list-empty-warning {
+  font-size: 4rem;
+  color: $gray;
+  grid-area: box;
+  justify-self: center;
+  align-self: center;
+  user-select: none;
+}
+
+.words-wrapper {
+  grid-area: box;
+  padding-top: 1rem;
+  grid-auto-rows: 50px;
+  gap: 15px;
+  height: 55vh;
+  display: grid;
+  overflow-y: auto;
+}
+
+.words-wrapper::-webkit-scrollbar {
+  background-color: $black;
+  width: 0.2rem;
+}
+
+.words-wrapper::-webkit-scrollbar-thumb {
+  background-color: $gray;
+  border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+  .words-wrapper {
+    height: 60vh;
+  }
+
+  .words-wrapper::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+
+  .list-empty-warning {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .words-wrapper {
+    grid-auto-rows: 40px;
+  }
+
+  .words-wrapper::-webkit-scrollbar {
+    width: 0.2rem;
+  }
+
+  .list-empty-warning {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .words-wrapper {
+    grid-auto-rows: 35px;
+  }
+
+  .words-wrapper::-webkit-scrollbar {
+    width: 0.1rem;
+  }
+
+  .list-empty-warning {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .list-empty-warning {
+    font-size: 1.5rem;
+  }
+}

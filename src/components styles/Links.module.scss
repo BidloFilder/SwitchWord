@@ -1,0 +1,38 @@
+@import '../assets/Variables.scss';
+
+.telegram,
+.github {
+  color: $gray;
+  align-self: center;
+  grid-area: links;
+}
+
+.github {
+  justify-self: flex-end;
+  font-size: 1.4rem;
+}
+
+.telegram {
+  justify-self: flex-start;
+  font-size: 1.3rem;
+}
+
+@media (max-width: 1050px) {
+  .telegram {
+    font-size: 1rem;
+  }
+
+  .github {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .telegram {
+    font-size: 0.8rem;
+  }
+
+  .github {
+    font-size: 0.9rem;
+  }
+}

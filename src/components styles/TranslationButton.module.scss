@@ -1,0 +1,41 @@
+@import '../assets/Variables.scss';
+
+.translation-button {
+  grid-area: trnslBtn;
+  background: none;
+  color: $gray;
+  border: none;
+  font-size: 1.5rem;
+  transition: 0.3s;
+  cursor: pointer;
+  justify-self: center;
+  align-self: center;
+}
+
+.translation-button:hover {
+  color: $white;
+}
+
+@media (max-width: 1050px) {
+  .translation-button {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .translation-button {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .translation-button {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .translation-button {
+    font-size: 1rem;
+  }
+}

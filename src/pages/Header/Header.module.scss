@@ -1,0 +1,64 @@
+@import '../../assets/Variables.scss';
+
+.top-box {
+  background-color: $black;
+  grid-area: topContent;
+  display: grid;
+  grid-template: 'logo navigation .' / 5fr 1fr 5fr;
+
+  .logo {
+    grid-area: logo;
+    color: $white;
+    font-size: 2rem;
+    letter-spacing: 0.1px;
+    font-weight: 300;
+    cursor: default;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .logo::before {
+    content: 'SwitchWord.';
+  }
+}
+
+@media (max-width: 1200px) {
+  .top-box {
+    grid-template-columns: 3fr 1fr 3fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .top-box {
+    grid-template: 'logo navigation .' / 4fr 2fr 4fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .top-box {
+    grid-template: 'logo navigation navigation' / 4fr 1fr 1fr;
+  }
+
+  .top-box .logo {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .top-box {
+    grid-template:
+      '. logo .' 2fr
+      '. navigation .' 1fr;
+  }
+
+  .top-box .logo::before {
+    font-size: 1.3rem;
+    content: 'SW.';
+  }
+}
+
+@media (max-width: 300px) {
+  .top-box .logo::before {
+    font-size: 1rem;
+  }
+}

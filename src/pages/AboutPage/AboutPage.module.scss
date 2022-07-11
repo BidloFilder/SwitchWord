@@ -1,0 +1,68 @@
+@import '../../assets/Variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400&display=swap');
+
+.about {
+  grid-area: middleContent;
+  align-self: center;
+  justify-self: center;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  color: $gray;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  font-family: 'Lexend Deca', sans-serif;
+  font-weight: 400;
+  padding-right: 1.5rem;
+  cursor: default;
+}
+
+.about::-webkit-scrollbar {
+  background-color: $black;
+  width: 0.1rem;
+}
+
+.about::-webkit-scrollbar-thumb {
+  background-color: $gray;
+  border-radius: 10px;
+}
+
+.link {
+  color: $white;
+  text-decoration: none;
+}
+
+.headers {
+  color: $white;
+}
+
+@media (max-width: 1050px) {
+  .about {
+    font-size: 1.1rem;
+    width: 80%;
+  }
+}
+
+@media (max-width: 900px) {
+  .about {
+    text-align: center;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.3rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .about {
+    font-size: 0.9rem;
+    width: 90%;
+  }
+}
+
+@media (max-width: 450px) {
+  .about {
+    font-size: 0.8rem;
+    width: 100%;
+    line-height: 1.2rem;
+  }
+}

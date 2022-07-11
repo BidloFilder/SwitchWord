@@ -1,0 +1,47 @@
+@import '../assets/Variables.scss';
+
+.delete-all {
+  border: none;
+  background: none;
+  justify-self: center;
+  align-self: center;
+  color: $gray;
+  font-size: 1.4rem;
+  transition: 0.3s;
+  cursor: pointer;
+  grid-area: deleteAll;
+}
+
+.delete-all:hover {
+  color: $red;
+}
+
+@media (max-width: 1050px) {
+  .delete-all {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .delete-all {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .delete-all {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .delete-all {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .delete-all {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,121 @@
+@import '../../assets/Variables.scss';
+
+.guess-word {
+  grid-area: word;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 4rem;
+  color: $white;
+  cursor: default;
+  user-select: none;
+}
+
+.translation {
+  grid-area: trnslBtn;
+  color: $white;
+  justify-self: center;
+  align-self: flex-start;
+  font-size: 1.5rem;
+  cursor: default;
+  font-weight: 200;
+}
+
+.translation-empty {
+  color: $red;
+  font-weight: 300;
+  grid-area: trnslBtn;
+  justify-self: center;
+  align-self: flex-start;
+  font-size: 1.5rem;
+  cursor: default;
+}
+
+.list-is-empty {
+  color: $red;
+  grid-area: word;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 3.5rem;
+  cursor: default;
+  user-select: none;
+}
+
+.arrow {
+  display: grid;
+  grid-area: arrow;
+  height: 100%;
+  justify-self: center;
+  align-self: center;
+  font-size: 5rem;
+  color: $gray;
+}
+
+@media (max-width: 1050px) {
+  .guess-word,
+  .list-is-empty {
+    font-size: 2.5rem;
+    justify-self: center;
+    align-self: flex-end;
+  }
+
+  .arrow {
+    transform: rotate(-90deg);
+    font-size: 4rem;
+  }
+
+  .translation,
+  .translation-empty {
+    grid-area: answer;
+    align-self: center;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .list-is-empty,
+  .guess-word {
+    font-size: 2.1rem;
+  }
+
+  .arrow {
+    font-size: 3.5rem;
+  }
+
+  .translation-empty,
+  .translation {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .list-is-empty,
+  .guess-word {
+    font-size: 1.9rem;
+  }
+
+  .arrow {
+    font-size: 3rem;
+  }
+
+  .translation-empty,
+  .translation {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .list-is-empty,
+  .guess-ord {
+    font-size: 1.7rem;
+  }
+
+  .arrow {
+    font-size: 2.5rem;
+  }
+
+  .translation {
+    font-size: 0.8rem;
+  }
+}
